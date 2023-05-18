@@ -1,0 +1,11 @@
+Flask templates:
+
+Edit template/web in browser have to type in browser 'Console': 'document.body.contentEditable=true'
+--------------------------------------------------------------------------------------------------------------------------------
+
+Flask terminal commands:
+
+Start server: flask --app file_loc run -> Sample: flask --app flask/flask_1/hello.py run
+
+
+
