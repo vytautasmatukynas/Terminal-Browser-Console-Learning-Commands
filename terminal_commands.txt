@@ -7,8 +7,11 @@ Make dir (create folder): mkdir -> Sample: mkdir new_folder_name
 Remove dir (delete folder): rmdir -> Sample: rmdir folder_name
 Remove dir with all content including subfolders content: rm -rf -> Sample: rm -rf folder_name
 Create file: touch -> Sample: touch text.txt
-Remove file (delete file): rm -> Sample: rm text.txt
+Remove file (delete file): rm / del -> Sample: rm text.txt / del text.txt
 Open file: open / start -> Sample: start text.txt / open text.txt
+Clear terminal: cmd -> cls, bash -> clear
+Write to file (overwrites all data to "your text"): echo "your text" > file.name -> Sample: echo "aaaaaa" > aa.txt
+Write to file (appends "your text" to end of file): echo "your text" >> file.name -> Sample: echo "aaaaaa" >> aa.txt
 
 ENV commands:
 
