@@ -1,2 +1,2 @@
 # Terminal-docs-Learning-Commands
-This is some basic terminal commands. 
+This is my docs with some basic terminal commands.
