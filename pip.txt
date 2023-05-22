@@ -9,6 +9,9 @@ On Windows using the Command Prompt: path\to\venv\Scripts\activate.bat
 On Windows using PowerShell: path\to\venv\Scripts\Activate.ps1
 
 Install frameworks and etc:
+Sample -->> /venv/Script/python.exe -m pip3 install Flask
+Sample -->> /venv/Script/python.exe -m pip3 uninstall Flask
+
 pip3 install Flask
 pip3 install Flask-Migrate
 pip3 install Flask-Sqlalchemy
