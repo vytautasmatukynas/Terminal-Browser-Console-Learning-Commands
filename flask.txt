@@ -8,4 +8,15 @@ Flask terminal commands:
 Start server: flask --app file_loc run -> Sample: flask --app flask/flask_1/hello.py run
 
 
+Set flask app for migration and update sql table with flask-migrate:
+
+Set main.py where your app is ENV item: widnows: set FLASK_APP=main.py
+macOS/linus: set FLASK_APP=main.py
+
+Create migration dir: flask db init
+
+Create migration command (file): flask db migrate -m "your message"
+
+Performe migration (commit): flask db upgrade
+
 
