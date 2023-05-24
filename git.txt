@@ -1,0 +1,11 @@
+To ignore files/folders in git like your conn .env files and all that sensitive data, use -> .gitignore file. Type all folders/files that you dont want to use in git.
+
+Create git: git init
+
+Add file to git: git add file_name --> Sample git add documentation\sample.txt <OR> git add . / git add --all (adds all files in current dir to git)
+Add folder to git: git add folder_dir --> Sample git add documentation\
+Remove file from git: git rm file_name --> Sample git rm documentation\sample.txt <OR> git rm Documentation/\*.txt (Remove all .txt files in this dir)
+Remove folder from git: git rm -r test_dir --> Sample: git rm -r main_project/db_folder
+
+Check changes that will be commited: git status
+Commit changes: git commit -m '<commit_message>' --> Sample: git commit -m 'my first commit'
