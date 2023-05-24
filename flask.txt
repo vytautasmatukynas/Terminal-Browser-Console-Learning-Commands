@@ -10,7 +10,7 @@ Start server: flask --app file_loc run -> Sample: flask --app flask/flask_1/hell
 
 Set flask app for migration and update sql table with flask-migrate:
 
-Set main.py where your app is ENV item: widnows: set FLASK_APP=main.py
+Set main.py ENV item: widnows: set FLASK_APP=main.py
 macOS/linus: set FLASK_APP=main.py
 
 Create migration dir: flask db init
