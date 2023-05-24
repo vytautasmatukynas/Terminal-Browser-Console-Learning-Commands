@@ -12,6 +12,9 @@ Open file: open / start -> Sample: start text.txt / open text.txt
 Clear terminal: cmd -> cls, bash -> clear
 Write to file (overwrites all data to "your text"): echo "your text" > file.name -> Sample: echo "aaaaaa" > aa.txt
 Write to file (appends "your text" to end of file): echo "your text" >> file.name -> Sample: echo "aaaaaa" >> aa.txt
+Open file in VS Code: code file.type --> code main.py
+Open project: code .
+OPen current folder: start .
 
 ENV commands:
 
