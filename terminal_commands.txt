@@ -1,7 +1,7 @@
 Default commands:
 
 Show working dir: pwd
-Show list files/folders in working dir: ls
+Show list files/folders in working dir: ls <OR> ls -A (show hidden elements too). Windows: dir
 Change dir: cd -> Sample: cd PyCharm/pyqt/
 Make dir (create folder): mkdir -> Sample: mkdir new_folder_name
 Remove dir (delete folder): rmdir -> Sample: rmdir folder_name

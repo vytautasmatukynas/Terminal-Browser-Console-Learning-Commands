@@ -1,11 +1,19 @@
+Install from requirements.txt:
+pip install -r requirements.txt
+
+requirements.txt inside sample:
+Flask==1.0.2
+Jinja2==2.10
+<AND> etc. all libs/frames you need.
+
 Install venv:
 python -m venv /path/to/directory
 
 Active venv:
-On Unix or MacOS, using the bash shell: source /path/to/venv/bin/activate
-On Unix or MacOS, using the csh shell: source /path/to/venv/bin/activate.csh
-On Unix or MacOS, using the fish shell: source /path/to/venv/bin/activate.fish
-On Windows using the Command Prompt: path\to\venv\Scripts\activate.bat
+On Unix or MacOS, using the bash shell: source /path/to/venv/bin/activate <OR> source activate "venv name"
+On Unix or MacOS, using the csh shell: source /path/to/venv/bin/activate.csh  <OR> source activate "venv name"
+On Unix or MacOS, using the fish shell: source /path/to/venv/bin/activate.fish  <OR> source activate "venv name"
+On Windows using the Command Prompt: path\to\venv\Scripts\activate.bat <OR> activate "venv name"
 On Windows using PowerShell: path\to\venv\Scripts\Activate.ps1
 
 Install frameworks and etc:
