@@ -13,7 +13,7 @@ Set flask app for migration and update sql table with flask-migrate:
 Set ENV item of your main.py file: widnows: set FLASK_APP=main.py
 macOS/linus: set FLASK_APP=main.py
 
-Create migration dir: flask db init
+Create migration dir: flask db init <OR> python app.py db init --directory models/migrations (set migraion folder dir)
 
 Create migration command (file): flask db migrate -m "your message"
 
