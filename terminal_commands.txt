@@ -28,8 +28,9 @@ Open file in VS Code: code file.type --> code main.py
 
 Open project: code .
 
-OPen current folder: start .
+Open current folder: start .
 
+------------------------------------------
 
 ENV commands:
 
@@ -42,6 +43,7 @@ macOS: zsh: export FLASK_APP=file_loc -> Sample: export FLASK_APP=flask/flask_1/
 
 Linux: bash: export FLASK_APP=file_loc -> Sample: set FLASK_APP=flask/flask_1/hello.py
 
+------------------------------------------
 
 To print all .env items in terminal type:
 
@@ -49,9 +51,12 @@ Windows: set
 
 Linux or macOS: printenv
 
+------------------------------------------
 
 To check if env item excits:
 
 Windows: echo %VAR_NAME%  
 
 Linux or macOS: echo $VAR_NAME
+
+------------------------------------------

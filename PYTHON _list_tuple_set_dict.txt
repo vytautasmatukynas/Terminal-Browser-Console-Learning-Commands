@@ -91,4 +91,5 @@ del			Remove list item SAMPLE --> del thisdict["model"] | Delete dict SAMPLE -->
 len 			Count items in dict SAMPLE --> len(thisdict)
 add_item_to_dict  	SAMPLE --> car["color"] = "white" (adds new item if not exist)
 update_item_in_dict  	SAMPLE --> car["year"] = 2020 (updates existing item(key) with new value)
+
 ----------------------------------------

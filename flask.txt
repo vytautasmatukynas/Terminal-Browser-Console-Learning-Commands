@@ -1,12 +1,14 @@
 Flask templates:
 
 Edit template/web in browser have to type in browser 'Console': 'document.body.contentEditable=true'
---------------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------
 
 Flask terminal commands:
 
 Start server: flask --app file_loc run -> Sample: flask --app flask/flask_1/hello.py run
 
+------------------------------------------
 
 Set flask app for migration and update sql table with flask-migrate:
 
@@ -18,5 +20,7 @@ Create migration dir: flask db init <OR> python app.py db init --directory model
 Create migration command (file): flask db migrate -m "your message"
 
 Performe migration (commit): flask db upgrade
+
+------------------------------------------
 
 

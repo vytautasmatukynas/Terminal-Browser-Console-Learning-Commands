@@ -2,11 +2,13 @@ Install from requirements.txt:
 
 pip install -r requirements.txt
 
+------------------------------------------
 
 List all installed frameworks in env:
 
 pip list
 
+------------------------------------------
 
 requirements.txt inside sample:
 
@@ -17,11 +19,13 @@ Jinja2==2.10
 
 etc. all libs/frames you need.
 
+------------------------------------------
 
 Install venv:
 
 python -m venv /path/to/directory
 
+------------------------------------------
 
 Active venv:
 
@@ -35,6 +39,7 @@ On Windows using the Command Prompt: path\to\venv\Scripts\activate.bat <OR> acti
 
 On Windows using PowerShell: path\to\venv\Scripts\Activate.ps1
 
+------------------------------------------
 
 Install frameworks and etc:
 
@@ -68,3 +73,5 @@ pip install configparser
 pip install psycopg2
 pip install SQLAlchemy
 pip install Flask-SQLAlchemy
+
+------------------------------------------

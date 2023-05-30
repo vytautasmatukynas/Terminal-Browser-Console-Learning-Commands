@@ -1,7 +1,10 @@
 To ignore files/folders in git like your conn .env files and all that sensitive data, use -> .gitignore file. Type all folders/files that you dont want to use in git.
 
-"Another Git process seems to be running in this repository": rm -f .git/index.lock
+------------------------------------------
 
+Error --> "Another Git process seems to be running in this repository": rm -f .git/index.lock
+
+------------------------------------------
 
 Create git: git init
 
@@ -13,7 +16,10 @@ Remove file from git: git rm file_name --> Sample git rm documentation\sample.tx
 
 Remove folder from git: git rm -r test_dir --> Sample: git rm -r main_project/db_folder
 
+------------------------------------------
 
 Check changes that will be commited: git status
 
 Commit changes: git commit -m '<commit_message>' --> Sample: git commit -m 'my first commit'
+
+------------------------------------------
