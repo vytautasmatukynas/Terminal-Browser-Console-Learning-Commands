@@ -1,0 +1,94 @@
+List Methods ---------------------------
+
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+
+Method		Description
+
+append()		Adds an element at the end of the list SAMPLE --> thislist.append("orange")
+clear()		Removes all the elements from the list SAMPLE --> thislist.clear()
+copy()		Returns a copy of the list SAMPLE --> mylist = thislist.copy()
+count()		Returns the number of elements with the specified value SAMPLE --> x = fruits.count("cherry")
+extend()		Add the elements of a list (or any iterable), to the end of the current list SAMPLE --> thislist.extend(tropical),
+														 			    thislist.extend(thistuple)
+index()		Returns the index of the first element with the specified value SAMPLE --> x = fruits.index("cherry")
+insert()		Adds an element at the specified position SAMPLE --> thislist.insert(2, "watermelon")
+pop()			Removes the element at the specified position SAMPLE --> thislist.pop(1)
+												   thislist.pop() (delete last item)
+remove()		Removes the item with the specified value SAMPLE --> thislist.remove("banana")
+reverse()		Reverses the order of the list SAMPLE --> fruits.reverse() 
+sort()		Sorts the list SAMPLE --> thislist.sort() cars.sort(reverse=True)
+del			Remove list item SAMPLE --> del thislist[0] | Delete list SAMPLE --> del thislist
+len 			Count items in list SAMPLE --> len(thislist)
+----------------------------------------
+
+Tuple Methods --------------------------
+
+thistuple = ("kiwi", "orange")
+
+Method		Description
+
+count()		Returns the number of times a specified value occurs in a tuple SAMPLE --> x = thistuple.count("orange")
+index()		Searches the tuple for a specified value and returns the position of where it was found SAMPLE --> x = thistuple.index("orange")
+len 			Count items in tuple SAMPLE --> len(thistuple)
+----------------------------------------
+
+Set Methods ----------------------------
+
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+mylist = ["kiwi", "orange"]
+
+Method		Description
+
+add()			Adds an element to the set SAMPLE --> thisset.add("orange")
+clear()		Removes all the elements from the set SAMPLE --> thisset.clear()
+copy()		Returns a copy of the set SAMPLE --> x = fruits.copy()
+difference()	Returns a set containing the difference between two or more sets SAMPLE --> set_3 = thisset.difference(tropical)
+difference_update()	Removes the items in this set that are also included in another, specified set SAMPLE --> thisset.difference_update(tropical)
+discard()		Remove the specified item SAMPLE --> thisset.discard("banana")
+intersection()	Returns a set, that is the intersection of two other sets SAMPLE --> thisset.intersection(tropical)
+intersection_update()	Removes the items in this set that are not present in other, specified set(s) SAMPLE --> thisset.intersection_update(tropical)
+isdisjoint()	Returns whether two sets have a intersection or not SAMPLE --> set_3 = thisset.isdisjoint(tropical)
+issubset()		Returns whether another set contains this set or not SAMPLE --> set_3 = thisset.issubset(tropical)
+issuperset()	Returns whether this set contains another set or not SAMPLE --> set_3 = thisset.issuperset(tropical)
+pop()			Removes an element from the set SAMPLE --> x = thisset.pop()
+remove()		Removes the specified element SAMPLE --> thisset.remove("banana")
+symmetric_difference()	Returns a set with the symmetric differences of two sets SAMPLE --> set_3 = thisset.symmetric_difference(tropical)
+symmetric_difference_update()	inserts the symmetric differences from this set and another SAMPLE --> thisset.symmetric_difference_update(tropical)
+union()		Return a set containing the union of sets SAMPLE --> set_3 = thisset.union(tropical)
+update()		Update the set with the union of this set and others SAMPLE --> thisset.update(tropical) <AND> thisset.update(mylist) (dont have to be SET)
+len 			Count items in set SAMPLE --> len(myset) 
+del			Delete set SAMPLE --> del thisset
+----------------------------------------
+
+Dictionary Methods ---------------------
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)
+print(thisdict["brand"])
+
+Method		Description
+
+clear()     	Removes all the elements from the dictionary SAMPLE --> thisdict.clear()
+copy()      	Returns a copy of the dictionary SAMPLE --> mydict = thisdict.copy()
+fromkeys()		Returns a dictionary with the specified keys and value SAMPLE --> x = ('key1', 'key2', 'key3')
+														y = value1
+														thisdict = dict.fromkeys(x, y)
+get()			Returns the value of the specified key SAMPLE --> x = thisdict.get("model")
+items()		Returns a list containing a tuple for each key value pair SAMPLE --> x = thisdict.items() 
+keys()		Returns a list containing the dictionary's keys SAMPLE --> x = thisdict.keys() 
+pop()			Removes the element with the specified key SAMPLE --> thisdict.pop("model")
+popitem()		Removes the last inserted key-value pair SAMPLE --> thisdict.popitem()
+setdefault()	Returns the value of the specified key. If the key does not exist: insert the key, with the specified value SAMPLE --> x = car.setdefault("color", "white")
+update()		Updates the dictionary with the specified key-value pairs SAMPLE --> thisdict.update({"year": 2020}) 
+values()		Returns a list of all the values in the dictionary SAMPLE --> x = thisdict.values()
+del			Remove list item SAMPLE --> del thisdict["model"] | Delete dict SAMPLE --> del thisdict
+len 			Count items in dict SAMPLE --> len(thisdict)
+add_item_to_dict  	SAMPLE --> car["color"] = "white" (adds new item if not exist)
+update_item_in_dict  	SAMPLE --> car["year"] = 2020 (updates existing item(key) with new value)
+----------------------------------------
