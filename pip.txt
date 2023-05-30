@@ -1,45 +1,65 @@
 Install from requirements.txt:
+
 pip install -r requirements.txt
 
+
 requirements.txt inside sample:
+
 Flask==1.0.2
 Jinja2==2.10
-<AND> etc. all libs/frames you need.
+
+<AND> 
+
+etc. all libs/frames you need.
+
 
 Install venv:
+
 python -m venv /path/to/directory
 
+
 Active venv:
+
 On Unix or MacOS, using the bash shell: source /path/to/venv/bin/activate <OR> source activate "venv name"
+
 On Unix or MacOS, using the csh shell: source /path/to/venv/bin/activate.csh  <OR> source activate "venv name"
+
 On Unix or MacOS, using the fish shell: source /path/to/venv/bin/activate.fish  <OR> source activate "venv name"
+
 On Windows using the Command Prompt: path\to\venv\Scripts\activate.bat <OR> activate "venv name"
+
 On Windows using PowerShell: path\to\venv\Scripts\Activate.ps1
 
+
 Install frameworks and etc:
-Sample -->> /venv/Script/python.exe -m pip3 install Flask
-Sample -->> /venv/Script/python.exe -m pip3 uninstall Flask
 
-pip3 install Flask
-pip3 install Flask-Migrate
-pip3 install Flask-Sqlalchemy
-pip3 install Flask-WTF
-pip3 install Django
-pip3 install html
+Sample -->> pip install Flask
 
-pip3 install Pandas
-pip3 install numpy
-pip3 install matplotlib
-pip3 install XlsxWriter
-pip3 install xlwt
-pip3 install UliPlot
+Sample -->> pip install Flask
 
-pip3 install PyQt5
-pip3 install configparser
+<OR>
 
-pip3 install psycopg2
-pip3 install SQLAlchemy
-pip3 install Flask-SQLAlchemy
+Sample -->> /venv/Script/python.exe -m pip install Flask
 
+Sample -->> /venv/Script/python.exe -m pip uninstall Flask
 
-OR ---> 'my_env\Scripts\python.exe -m pip install Django'
+pip install Flask
+pip install Flask-Migrate
+pip install Flask-Sqlalchemy
+pip install Flask-WTF
+pip install Django
+pip install html
+
+pip install Pandas
+pip install numpy
+pip install matplotlib
+pip install XlsxWriter
+pip install xlwt
+pip install UliPlot
+
+pip install PyQt5
+pip install configparser
+
+pip install psycopg2
+pip install SQLAlchemy
+pip install Flask-SQLAlchemy
