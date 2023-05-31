@@ -1,3 +1,5 @@
+------------------------ (c) Vytautas Matukynas ------------------------
+
 Flask templates:
 
 Edit template/web in browser have to type in browser 'Console': 'document.body.contentEditable=true'

@@ -1,3 +1,5 @@
+------------------------ (c) Vytautas Matukynas ------------------------
+
 List Methods ---------------------------
 
 thislist = ["apple", "banana", "cherry"]

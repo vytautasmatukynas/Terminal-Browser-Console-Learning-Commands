@@ -1,3 +1,5 @@
+------------------------ (c) Vytautas Matukynas ------------------------
+
 Default commands:
 
 Show working dir: pwd

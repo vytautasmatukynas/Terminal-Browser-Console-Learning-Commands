@@ -1,3 +1,5 @@
+------------------------ (c) Vytautas Matukynas ------------------------
+
 To ignore files/folders in git like your conn .env files and all that sensitive data, use -> .gitignore file. Type all folders/files that you dont want to use in git.
 
 ------------------------------------------
