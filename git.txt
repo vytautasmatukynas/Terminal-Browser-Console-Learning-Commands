@@ -25,3 +25,10 @@ Check changes that will be commited: git status
 Commit changes: git commit -m '<commit_message>' --> Sample: git commit -m 'my first commit'
 
 ------------------------------------------
+
+Create branch from current git repository: git branch <branch_name> --> Sample: git branch sample_branch_name
+
+Checkout to git branch: git checkout <branch_name> --> Sample: git checkout sample_branch_name
+
+Merge git branch to current git repository: git merge <branch_name> --> Sample: git merge sample_branch_name
+
