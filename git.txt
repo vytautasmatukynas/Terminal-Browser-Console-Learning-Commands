@@ -1,5 +1,9 @@
 ------------------------ (c) Vytautas Matukynas ------------------------
 
+To activate github.dev just go to repository you want and press "." key.
+
+------------------------------------------
+
 To ignore files/folders in git like your conn .env files and all that sensitive data, use -> .gitignore file. Type all folders/files that you dont want to use in git.
 
 ------------------------------------------

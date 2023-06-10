@@ -32,6 +32,10 @@ Open project: code .
 
 Open current folder: start .
 
+Move one dir back: cd ..
+
+Move to root dir:  cd /
+
 ------------------------------------------
 
 ENV commands:
@@ -55,7 +59,7 @@ Linux or macOS: printenv
 
 ------------------------------------------
 
-To check if env item excits:
+To check if env item exists:
 
 Windows: echo %VAR_NAME%  
 
