@@ -1,6 +1,6 @@
 Sample:
 
-pyinstaller --noconfirm --onedir --windowed  "D:/PyCharm/pyqt/bardakas-PyQT5/Bardakas.py" --icon=uzsakymai_icon.ico --uac-admin
+pyinstaller --noconfirm --onedir --windowed  "D:/Python/pyqt/bardakas-PyQT5/Bardakas.py" --icon=uzsakymai_icon.ico --uac-admin
 
 ----------------------------------------
 

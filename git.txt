@@ -36,3 +36,5 @@ Checkout to git branch: git checkout <branch_name> --> Sample: git checkout samp
 
 Merge git branch to current git repository: git merge <branch_name> --> Sample: git merge sample_branch_name
 
+Delete git branch: git branch --delete <branchname> --> Sample git branch --delete sample_branch_name
+
