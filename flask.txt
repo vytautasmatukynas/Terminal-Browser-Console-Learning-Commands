@@ -8,7 +8,9 @@ Edit template/web in browser have to type in browser 'Console': 'document.body.c
 
 Flask terminal commands:
 
-Start server: flask --app file_loc run -> Sample: flask --app flask/flask_1/hello.py run
+Start server: flask --app file_loc run -> Sample: flask --app flask/flask_1/hello.py run 
+
+Activate debug mode: --debug -> Sample: flask --app flask/flask_1/hello.py run --debug
 
 ------------------------------------------
 
