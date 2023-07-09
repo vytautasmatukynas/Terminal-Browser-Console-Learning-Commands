@@ -4,10 +4,12 @@ Create docker image: docker build -t <image_name> <files_dir> -> Sample:  docker
 
 Start docker image: docker run -p <port:port> <docker_port> -> Sample: docker run -p 5005:5000 rest-api-test
 
-Start docker image in background: docker run -d -p <docker_port:port> <image_name> -> Sample: docker run -d -p 5005:5000 rest-api-test
+Start docker image in background: docker run -dp <docker_port:port> <image_name> -> Sample: docker run -d -p 5005:5000 rest-api-test
+
+Start docker image and link with you current work folder, so when you change something it will change auto in docker image (use "volume" only for local development, don'y use for deployment): docker run -p <docker_port:port> -w /<WORKDIR> -v "<project_dir>:/<WORKDIR>" <image_name> -> Sample: docker run -dp 5005:5000 -w /app -v "/project/dir/app:/app" rest-api-test
 
 -------------------------------------------
 
 Port forwarding: -p
 
-RUn as daemon in background: -d
+Run as daemon in background: -d

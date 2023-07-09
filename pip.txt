@@ -16,6 +16,13 @@ requirements.txt inside sample:
 
 Flask==1.0.2
 Jinja2==2.10
+...
+
+<OR>
+
+flask
+jinja2
+...
 
 <AND> 
 
