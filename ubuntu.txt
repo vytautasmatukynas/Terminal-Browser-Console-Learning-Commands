@@ -1,6 +1,7 @@
 ------------------------ (c) Vytautas Matukynas ------------------------
 
 Check for updates: sudo apt update && sudo apt upgrade
+
 Remove the packages that failed to install completely: sudo apt-get autoclean
 Remove the apt-cache: sudo apt-get clean
 Remove the unwanted software dependencies: sudo apt-get autoremove
@@ -8,6 +9,7 @@ Remove the unwanted software dependencies: sudo apt-get autoremove
 ------------------------------------------------------------------------
 
 Installing complete multimedia support: sudo apt install ubuntu-restricted-extras
+Installing Ubuntu apps: sudo apt install ubuntu-desktop 
 
 Improve Battery with TLP for Linux: sudo apt-get install tlp tlp-rdw
 Start TLP: sudo tlp start
@@ -16,6 +18,7 @@ Install Extension Manager: sudo apt install gnome-shell-extension-manager
 
 Install Python: sudo apt install python3
 Check version: python3 --version
+Change Ubuntu Python version: update-alternatives --config python3
 
 Install Git: sudo apt install git
 Check version: git --version
