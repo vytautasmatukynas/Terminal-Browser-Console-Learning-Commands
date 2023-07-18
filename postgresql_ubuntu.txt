@@ -1,8 +1,12 @@
 ------------------------ (c) Vytautas Matukynas --------------------------
 
-Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+Creating user: sudo -u postgres createuser <username>
+Creating Database: sudo -u postgres createdb <dbname>
 
-Create user: sudo -u postgres createuser <username>
+Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+<psql admin> Create db: postgres=# create database <db_name>;
+<psql admin> Giving the user a password: psql=# alter user <username> with encrypted password '<password>';
+<psql admin> Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
 
 ------------------------------ PostgreSQL INSTALL and SETUP --------------------------------------
 
@@ -26,3 +30,8 @@ sudo service postgresql start
 sudo service postgresql restart
 
 Setup PostgreSQL user and server:
+Creating user: sudo -u postgres createuser <username>
+Creating Database: sudo -u postgres createdb <dbname>
+Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+Giving the user a password: psql=# alter user <username> with encrypted password '<password>';
+Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
