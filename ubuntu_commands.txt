@@ -23,6 +23,8 @@ ps -U vivek -au – Actual process or command with command line arguments
 
 Kill process using the above found process id: kill <process id>
 
+Enable/Dsable firewall: sudo ufw enable <OR> sudo ufw disable
+
 ------------------------------------------------------------------------------
 
 Show Trash on desktop: gsettings set org.gnome.shell.extensions.ding show-trash true
