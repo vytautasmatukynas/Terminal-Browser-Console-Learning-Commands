@@ -1,0 +1,28 @@
+------------------------ (c) Vytautas Matukynas --------------------------
+
+Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+
+Create user: sudo -u postgres createuser <username>
+
+------------------------------ PostgreSQL INSTALL and SETUP --------------------------------------
+
+Install pgAdmin4:
+Install required packages: sudo apt-get install build-essential libssl-dev libffi-dev libgmp3-dev virtualenv python-pip libpq-dev python-dev
+Install the public key for the PgAdmin4 repository: curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+Create the repository configuration file: sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+Install pgAdmin4 on Ubuntu: sudo apt install pgadmin4
+Update Ubuntu: sudo apt update && sudo apt upgrade
+
+Install PostgreSQL:
+Download GPG key: sudo wget -qO /etc/apt/trusted.gpg.d/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+Add repository: echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -sc)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+Update Ubuntu: sudo apt update && sudo apt upgrade
+Install PostgreSQL  on Ubuntu: sudo apt install -y postgresql postgresql-contrib
+Check version: psql --version
+The following command can be used to check if PostgreSQL service is running: sudo service postgresql status
+We can also stop, start and restart the service:
+sudo service postgresql stop
+sudo service postgresql start
+sudo service postgresql restart
+
+Setup PostgreSQL user and server:
