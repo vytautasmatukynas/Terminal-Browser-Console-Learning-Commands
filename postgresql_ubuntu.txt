@@ -1,17 +1,57 @@
 ------------------------ (c) Vytautas Matukynas --------------------------
 
-Creating user: sudo -u postgres createuser <username>
-Creating Database: sudo -u postgres createdb <dbname>
+----------------------------------- DEFAULT ---------------------------------------
 
-Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+Connect to postgres <username>: psql -h <ipaddress> -U <username> -d <dbname>
+host: -h
+user: -U
+database: -d
+
+The following command can be used to check if PostgreSQL service is running: sudo systemctl status postgresql
+Ensure that the server is running using the systemctl start command: sudo systemctl start postgresql.service
+We can also stop, start and restart the service:
+sudo systemctl stop postgresql
+sudo systemctl start postgresql
+sudo systemctl restart postgresql
+
+Define name of the new role and also ask whether it should have superuser permissions: --interactive
+Check for more options to createuser: man createuser
+
+# Create user/db and edit user/db by using sudo on current <username>
+Creating user: sudo -u postgres createuser --interactive
+Output Sample
+Enter name of role to add: <username>
+Shall the new role be a superuser? (y/n) y
+
+Creating Database: sudo -u postgres createdb <dbname>
 Change pasword of user: sudo -u postgres psql -c "ALTER USER <username> PASSWORD '<new-password>';"
 Select user: sudo -u postgres psql -c "SELECT <new-password>;"
+
+# Create user/db and edit user/db by switching to postgres account
+Switch over to the postgres account on your server by typing: sudo -i -u postgres
+Using woth sudo this is LOGIN: -i
+Specifies the target user "postgres": -u postgres
+
+<<username> account> Set PostgreSQL command line interface in full admin mode: psql
+<<username> account> Create user: createuser --interactive
+<<username> account> Create db: createdb <dbname>
+
+# Create user/db and edit user/db by using psql admin
+Creating user: sudo -u postgres createuser <username>
+Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
 <psql admin> Create db: postgres=# create database <db_name>;
 <psql admin> Giving the user a password: psql=# alter user <username> with encrypted password '<password>';
 <psql admin> Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
+
 <psql admin> Show conn info: \conninfo
 <psql admin> Change user: \c - <username>
 <psql admin> Change user and db: \c a_new_database a_new_user
+<psql admin> Change password for <username>: \password <username>
+<psql admin> Exit the interactive Postgres session: \q
+<psql admin> Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_1>, ..., <username_10>;
+<psql admin> Change <username> to SUPERUSER: ALTER USER <username> WITH SUPERUSER;
+<psql admin> Remove SUPERUSER from <username>: ALTER USER <username> WITH NOSUPERUSER;
+<psql admin> Channge username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
 
 ------------------------------ PostgreSQL INSTALL and SETUP --------------------------------------
 
@@ -28,11 +68,8 @@ Add repository: echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release 
 Update Ubuntu: sudo apt update && sudo apt upgrade
 Install PostgreSQL  on Ubuntu: sudo apt install -y postgresql postgresql-contrib
 Check version: psql --version
-The following command can be used to check if PostgreSQL service is running: sudo service postgresql status
-We can also stop, start and restart the service:
-sudo service postgresql stop
-sudo service postgresql start
-sudo service postgresql restart
+The following command can be used to check if PostgreSQL service is running: sudo systemctl status postgresql
+Ensure that the server is running using the systemctl start command: sudo systemctl start postgresql.service
 
 Setup PostgreSQL user and server:
 Creating user: sudo -u postgres createuser <username>
@@ -45,22 +82,31 @@ Granting privileges on database: psql=# grant all privileges on database <dbname
 
 Open postgresql.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/postgresql.conf 
 Change line text: #listen_addresses = 'localhost' <TO> listen_addresses = '*'
+
 Open pg_hba.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/pg_hba.conf
  
 Change lines:
+<FROM> # LOCALHOST #
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   <db_name>       <username>      <ipaddress>            md5
 # IPv4 local connections: 
 host    all             all             127.0.0.1/32            md5
 # IPv6 local connections:
 host    all             all             ::1/128                 md5
-
-<TO>
-
+<TO> # SAME NETWORK HOST #
 # IPv4 local connections: 
 host    all     	all     	0.0.0.0/0       	md5
 # IPv6 local connections:
 host    all             all     	:/0             	md5
 
-Open the port “5432” in the firewal: sudo ufw allow <port>
+Open the port “5432” in the firewal: sudo ufw allow 5432
+Confirm that the PostgreSQL server is running and listening on the specified IP address and port: netstat -tuln | grep 5432 
+Restart server: sudo systemctl restart postgresql
+
+INPUT chain of the iptables firewall: sudo iptables -L INPUT -n
+Add INPUT chain to allow incoming connections on port 5432: sudo iptables -A INPUT -p tcp --dport 5432 -j ACCEPT
+Save changes: sudo iptables-save | sudo tee /etc/iptables/rules.v4
+
 
 
 
