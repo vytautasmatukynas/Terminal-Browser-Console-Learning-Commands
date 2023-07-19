@@ -20,10 +20,10 @@ Displays the most amount of information a user usually needs to understand the c
 
 Process sample:
 vivek    30992  0.0  0.3  40092  3492 pts/0    R+   06:31   0:00 ps -U vivek -au <--
-vivek – User name
-30992 – PID (Ubuntu Linux process ID)
-06:31 – Process start time
-ps -U vivek -au – Actual process or command with command line arguments
+User name: vivek
+PID (Ubuntu Linux process ID): 30992
+Process start time: 06:31
+Actual process or command with command line arguments:ps -U vivek -au
 
 Kill process using the above found process id: kill <process id>
 
