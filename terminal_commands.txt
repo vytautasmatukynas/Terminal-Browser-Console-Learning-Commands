@@ -8,29 +8,17 @@ Show list files/folders in working dir: ls <OR> ls -A (show hidden elements too)
 
 Change dir: cd -> Sample: cd PyCharm/pyqt/
 
+Move one dir back: cd ..
 
-Make dir (create folder): mkdir -> Sample: mkdir new_folder_name
+Move to root dir:  cd / <OR> cd ~
 
-Remove dir (delete folder): rmdir -> Sample: rmdir folder_name
-
-Remove dir with all content including subfolders content: rm -rf -> Sample: rm -rf folder_name
-
-
-Create file: touch -> Sample: touch text.txt
-
-Remove file (delete file): rm / del -> Sample: rm text.txt / del text.txt
-
-Open file: open / start -> Sample: start text.txt / open text.txt
-
+---------------------------------
 
 Clear terminal: cmd -> cls, bash -> clear
 
 Clear command: Ctrl+U
 
-Write to file (overwrites all data to "your text"): echo "your text" > file.name -> Sample: echo "aaaaaa" > aa.txt
-
-Write to file (appends "your text" to end of file): echo "your text" >> file.name -> Sample: echo "aaaaaa" >> aa.txt
-
+---------------------------------
 
 Open file in VS Code: code file.type --> code main.py
 
@@ -38,16 +26,81 @@ Open project: code . <OR> code /project/dir
 
 Open current dir and any dir you type: start . <OR> start /project/dir
 
+---------------------------------
 
-Move one dir back: cd ..
+Make dir (create folder): mkdir -> Sample: mkdir new_folder_name
 
-Move to root dir:  cd / <OR> cd ~
+Remove dir (delete folder): rmdir -> Sample: rmdir folder_name
+
+Remove dir with all content including subfolders content: rm -rf -> Sample: rm -rf folder_name
+
+---------------------------------
+
+Create file: touch -> Sample: touch text.txt
+
+Remove file (delete file): rm / del -> Sample: rm text.txt / del text.txt
+
+Open file: open / start -> Sample: start text.txt / open text.txt
+
+---------------------------------
+
+Write to file (overwrites all data to "your text"): echo "your text" > file.name -> Sample: echo "aaaaaa" > aa.txt
+
+Write to file (appends "your text" to end of file): echo "your text" >> file.name -> Sample: echo "aaaaaa" >> aa.txt
 
 -------------------------------- CMD commands ---------------------------------
 
+Changes to directory: cd
 
+Changes to root directory: cd\
 
+Displays files and folders in current directory: dir
 
+Shows directory structure of a disk or folder: tree
+
+---------------------------------
+
+Creates a file or folder: md or makedir SAMPLE --> md \mydir <OR> md myfile.txt
+
+Renames a file or folder: ren or rename SAMPLE --> ren myfile.txt newfile.txt <OR> ren *.htm *.html
+
+Deletes a file or folder: rm or rmdir SAMPLE --> rm myfile.txt <OR> rm mydir/
+
+Delete a directory and all its contents: rm -r SAMPLE --> rm -r myfile.txt
+
+Forcibly delete files without asking: rm -f SAMPLE --> rm -f myfile.txt
+
+Deletes files: del <OR> erase SAMPLE --> del myfile.txt <OR> del ftp:/path/*.txt
+
+Delete all the files in the mydir directory, one by one: rm -i SAMPLE --> rm -i mydir/*
+
+---------------------------------
+
+Copies files to another location: copy
+
+Uses an advanced tool to copy files and directories: robocopy
+
+Copies files and directory trees: xcopy
+
+Replaces files in one directory with files of the same name in another directory (overwrite): replace
+
+Moves files from one folder to another: move
+
+Starts file editor: edit
+
+Decompresses compressed files: expand
+
+---------------------------------
+
+Compares files and shows the differences between them: fc
+
+Finds a text string in the file: find
+
+Prints out the text file contents: print
+
+Displays the contents of text files: type
+
+Manages opened local or network files: openfiles
 
 -------------------------------- ENV commands --------------------------------
 
