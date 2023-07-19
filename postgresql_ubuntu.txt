@@ -67,25 +67,47 @@ Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
 
 ---------------------------------------------------------------------------
 
-# Move around and edit PostgreSQL:
+# Move around and edit PostgreSQL admin mode '<username>=#':
 
-<psql admin> Show conn info: \conninfo
+Connect to admin mode: psql -d <db-name> -U <username> -W
 
-<psql admin> Change user: \c - <username>
+Show conn info: \conninfo
 
-<psql admin> Change user and db: \c <dbname> <username>
+Switch to another user: \c - <username>
 
-<psql admin> Change password for <username>: \password <username>
+Switch to another db: \c - <dbname>
 
-<psql admin> Exit the interactive Postgres session: \q
+Switch to another user and db: \c <dbname> <username>
 
-<psql admin> Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_1>, ..., <username_10>;
+Change password for <username>: \password <username>
 
-<psql admin> Change <username> to SUPERUSER: ALTER USER <username> WITH SUPERUSER;
+List all databases: \l
 
-<psql admin> Remove SUPERUSER from <username>: ALTER USER <username> WITH NOSUPERUSER;
+List databases: \du
 
-<psql admin> Channge username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
+List database tables: \dt
+
+See the table's structure: \d <tablename> <OR> \d+ <tablename>
+
+List all schemas: \dn
+
+List users and their roles: \du
+
+Retrieve a specific user: \du <username>
+
+List all functions: \df
+
+Exit the interactive Postgres session: \q
+
+---------------------------------------------------------------------------
+
+Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_1>, ..., <username_10>;
+
+Change <username> to SUPERUSER: ALTER USER <username> WITH SUPERUSER;
+
+Remove SUPERUSER from <username>: ALTER USER <username> WITH NOSUPERUSER;
+
+Channge username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
 
 ------------------------------ PostgreSQL INSTALL and SETUP --------------------------------------
 
