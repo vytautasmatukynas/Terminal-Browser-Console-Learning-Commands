@@ -1,6 +1,6 @@
 ------------------------ (c) Vytautas Matukynas ------------------------
 
------------------------- Default commands ------------------------
+------------------------ BASH commands ------------------------
 
 Show working dir: pwd
 
@@ -42,6 +42,12 @@ Open current dir and any dir you type: start . <OR> start /project/dir
 Move one dir back: cd ..
 
 Move to root dir:  cd / <OR> cd ~
+
+-------------------------------- CMD commands ---------------------------------
+
+
+
+
 
 -------------------------------- ENV commands --------------------------------
 
