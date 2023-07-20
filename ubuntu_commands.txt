@@ -49,6 +49,8 @@ Command-line utility in Linux operating systems that is used to control the syst
 
 Show Trash on desktop: gsettings set org.gnome.shell.extensions.ding show-trash true
 
+Show START in right: gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+
 Install .deb package: sudo apt install ./<file>.deb
 
 Give permissions to everyone for selected folder and its files: sudo chmod -R a+rwx . <OR> sudo chmod a+rwx /path/to/file

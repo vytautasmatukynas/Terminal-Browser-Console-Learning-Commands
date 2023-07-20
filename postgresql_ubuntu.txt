@@ -69,6 +69,8 @@ Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
 
 # Move around and edit PostgreSQL admin mode '<username>=#':
 
+Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+
 Connect to admin mode: psql -d <db-name> -U <username> -W
 
 Show conn info: \conninfo
@@ -82,8 +84,6 @@ Switch to another user and db: \c <dbname> <username>
 Change password for <username>: \password <username>
 
 List all databases: \l
-
-List databases: \du
 
 List database tables: \dt
 
