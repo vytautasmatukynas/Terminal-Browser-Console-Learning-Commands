@@ -1,0 +1,7 @@
+------------------------ (c) Vytautas Matukynas ------------------------
+
+Create project: django-admin startproject <project_name> SAMPLE --> django-admin startproject django_project
+
+Create Django app: python manage.py startapp <app_name> SAMPLE --> python manage.py startapp first_app
+
+Run server: python manage.py runserver
