@@ -1,2 +1,2 @@
 # Terminal-Code-Docs
-This is my doc files with some basic terminal, python and other commands.
+This is my doc files with terminal commands.
