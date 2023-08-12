@@ -101,7 +101,9 @@ Exit the interactive Postgres session: \q
 
 ---------------------------------------------------------------------------
 
-Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_1>, ..., <username_10>;
+Delete(DROP) table/tables: DROP TABLE <tablename>; <OR> DROP USER <tablename_1>, <tablename_2>, ..., <tablename_10>;
+
+Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_2>, ..., <username_10>;
 
 Change <username> to SUPERUSER: ALTER USER <username> WITH SUPERUSER;
 
@@ -185,7 +187,11 @@ Restart server: sudo systemctl restart postgresql
 
 ---------------------------------------------------------------------------
 
-INPUT chain of the iptables firewall: sudo iptables -L INPUT -n
+Working with Firewall:
+
+Open the port “5432” in the firewal: sudo ufw allow 5432
+
+Used to List the rules of INPUT chain of the iptables firewall, each rule specifies criteria for packets and defines what action should be taken on them (e.g., accept, drop, reject): sudo iptables -L INPUT -n
 Option is used to list the rules in a specific firewall chain: -L
 Display numeric values: -n
 
