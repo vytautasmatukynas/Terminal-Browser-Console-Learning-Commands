@@ -6,6 +6,8 @@ Create Django app: python manage.py startapp <app_name> SAMPLE --> python manage
 
 Run server: python manage.py runserver
 
+-----------------------------------------------------------------------
+
 Create migration: python manage.py makemigrations
 
 Start migration: python manage.py migrate
