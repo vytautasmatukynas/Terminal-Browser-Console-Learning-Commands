@@ -13,3 +13,5 @@ Create migration: python manage.py makemigrations
 Start migration: python manage.py migrate
 
 Create Admin account: python manage.py createsuperuser
+
+-----------------------------------------------------------------------
