@@ -15,6 +15,7 @@ We can also stop, start and restart the service:
 sudo systemctl stop postgresql
 sudo systemctl start postgresql
 sudo systemctl restart postgresql
+sudo systemctl enable postgresql
 
 Define name of the new role and also ask whether it should have superuser permissions: --interactive
 
@@ -111,13 +112,14 @@ Remove SUPERUSER from <username>: ALTER USER <username> WITH NOSUPERUSER;
 
 Channge username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
 
+
 ------------------------------ PostgreSQL INSTALL and SETUP --------------------------------------
 
 Install pgAdmin4:
 
 Install required packages: sudo apt-get install build-essential libssl-dev libffi-dev libgmp3-dev virtualenv python-pip libpq-dev python-dev
 
-Install the public key for the PgAdmin4 repository: curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+Install public key for PgAdmin4 repository: curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
 
 Create the repository configuration file: sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 
@@ -157,6 +159,7 @@ Giving the user a password: psql=# alter user <username> with encrypted password
 
 Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
 
+
 --------------------------------- ALLOW REMOTE CONNECTIONS -------------------------------------------
 
 Open postgresql.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/postgresql.conf 
@@ -185,9 +188,8 @@ Confirm that the PostgreSQL server is running and listening on the specified IP 
 
 Restart server: sudo systemctl restart postgresql
 
----------------------------------------------------------------------------
 
-Working with Firewall:
+------------------------ CONFIGURE FIREWALL FOR PORT 5432 --------------------------------
 
 Open the port “5432” in the firewal: sudo ufw allow 5432
 

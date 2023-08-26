@@ -80,6 +80,9 @@ pip install matplotlib
 pip install XlsxWriter
 pip install xlwt
 pip install UliPlot
+pip install jupyterlab
+pip install notebook
+pip install voila
 
 pip install PyQt5
 pip install configparser

@@ -1,5 +1,35 @@
 ------------------------ (c) Vytautas Matukynas ------------------------
 
+---------------------------- DOCKER FILE SAMPLE ---------------------------
+
+# Use the official Python 3.11 image as the base image
+FROM python:3.11
+
+# Expose port 5000 for incoming connections
+EXPOSE 5000
+
+# Set the working directory inside the container to /app
+WORKDIR /app
+
+# Copy the local requirements.txt file to the container
+COPY ./requirements.txt requirements.txt
+
+# Install the Python dependencies listed in requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Copy the entire local directory (including your Python application code) to the container:
+# The first dot (.) on the left side of the arrow specifies the source directory on your local machine.
+# The second dot (.) on the right side of the arrow specifies the destination directory inside the Docker container.
+# ./mycodelocal/ on the left side of the arrow specifies the source directory on your local machine.
+# ./mycodedocker/ on the right side of the arrow specifies the destination directory inside the Docker container.
+COPY . . <OR> COPY ./mycodelocal/ ./mycodedocker/
+
+# Define the command to run when the container starts
+CMD ["flask", "run", "--host", "0.0.0.0"]
+
+
+------------------------------ DOCKER COMMANDS ---------------------------------
+
 Create docker image: docker build -t <image_name> <files_dir> -> Sample:  docker build -t rest-api-test /d/Python/basic_API
 
 Start docker image: docker run -p <port:port> <docker_port> -> Sample: docker run -p 5005:5000 rest-api-test

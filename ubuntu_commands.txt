@@ -14,6 +14,32 @@ Remove the unwanted software dependencies: sudo apt-get autoremove
 
 ---------------------------------------------------------------------------
 
+Command-line utility in Linux operating systems that is used to control the system's init system and manage system services: systemctl SAMPLE --> sudo systemctl start <service_name>
+
+------------------------------------------------------------------------------
+
+Show Trash on desktop: gsettings set org.gnome.shell.extensions.ding show-trash true
+
+Show START in right: gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+
+Install .deb package: sudo apt install ./<file>.deb
+
+Run command with 'sudo' by using "|" (pipe) to define your password: echo {sudo_password}" | sudo -S {command} SAMPLE --> 
+--> echo pass123 | sudo -S systemctl restart postgresql
+Print password to standard  output: echo
+Pipe symbol redirects 'echo' standard output to the standard input of the subsequent command: |
+Run commands with the security privileges of another user, typically the superuser (root): sudo
+Tells 'sudo' to read password from input: -S
+
+Switch to the superuser (root) account and start a new shell session as the root user: sudo su
+Superuser (root): sudo
+This command stands for "switch user" and is used to change the current user to another user: su
+
+Give permissions to everyone for selected folder and its files: sudo chmod -R a+rwx . <OR> sudo chmod a+rwx /path/to/file
+
+
+--------------------------- RUNNING PROCESS -------------------------------
+
 Display running process: ps 
 
 Displays the most amount of information a user usually needs to understand the current state of their system’s running processes: ps -aux
@@ -27,7 +53,15 @@ Actual process or command with command line arguments:ps -U vivek -au
 
 Kill process using the above found process id: kill <process id>
 
----------------------------------------------------------------------------
+
+--------------------------- IP / PING -----------------------------
+
+Display IP: ip addr show <OR> ip a
+
+Ping the server to check its reachability:: ping <ipadress>
+
+
+------------------------------------ FIREWALL -----------------------------------
 
 Enable/Dsable FIREWALL: sudo ufw enable <OR> sudo ufw disable
 
@@ -35,27 +69,24 @@ Open the <port> in the FIREWALL: sudo ufw allow <port>
 
 INPUT chain of the iptables FIREWALL: sudo iptables -L INPUT -n
 
----------------------------------------------------------------------------
+Used to List the rules of INPUT chain of the iptables firewall, each rule specifies criteria for packets and defines what action should be taken on them (e.g., accept, drop, reject): sudo iptables -L INPUT -n
+Option is used to list the rules in a specific firewall chain: -L
+Display numeric values: -n
 
-Display IP: ip addr show <OR> ip a
+Add INPUT chain to allow incoming connections on port 5432: sudo iptables -A INPUT -p tcp --dport 5432 -j ACCEPT
+Add a new rule to the specified chain: -A
+Specify the protocol that the rule should match: -p
+Specify the target for the rule: -j
+Specify the destination port for incoming network packets: --dport
 
-Ping the server to check its reachability:: ping <ipadress>
+Save changes: sudo iptables-save | sudo tee /etc/iptables/rules.v4
 
----------------------------------------------------------------------------
-
-Command-line utility in Linux operating systems that is used to control the system's init system and manage system services: systemctl SAMPLE --> sudo systemctl start <service_name>
-
-------------------------------------------------------------------------------
-
-Show Trash on desktop: gsettings set org.gnome.shell.extensions.ding show-trash true
-
-Show START in right: gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
-
-Install .deb package: sudo apt install ./<file>.deb
-
-Give permissions to everyone for selected folder and its files: sudo chmod -R a+rwx . <OR> sudo chmod a+rwx /path/to/file
 
 ------------------------------------ INSTALL -----------------------------------
+
+Select "yes": -y <OR> --yes SAMPLE --> sudo apt upgrade -y (this will select in "y/n" question "y")
+
+---------------------------------------------------------------------------
 
 Rrefresh/Update Snap-Store: sudo snap refresh snap-store
 
