@@ -1,4 +1,4 @@
------------------------- (c) Vytautas Matukynas --------------------------
+Connect via SSH to diffrent machine: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
 
 ----------------------------------- DEFAULT ------------------------------
 
@@ -14,15 +14,13 @@ Remove the unwanted software dependencies: sudo apt-get autoremove
 
 ---------------------------------------------------------------------------
 
-Command-line utility in Linux operating systems that is used to control the system's init system and manage system services: systemctl SAMPLE --> sudo systemctl start <service_name>
+Command-line utility in Linux operating systems that is used to control the system's init system and manage system services: systemctl SAMPLE --> sudo systemctl start postgresql
 
 ------------------------------------------------------------------------------
 
 Show Trash on desktop: gsettings set org.gnome.shell.extensions.ding show-trash true
 
 Show START in right: gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
-
-Install .deb package: sudo apt install ./<file>.deb
 
 Run command with 'sudo' by using "|" (pipe) to define your password: echo {sudo_password}" | sudo -S {command} SAMPLE --> 
 --> echo pass123 | sudo -S systemctl restart postgresql
@@ -31,12 +29,27 @@ Pipe symbol redirects 'echo' standard output to the standard input of the subseq
 Run commands with the security privileges of another user, typically the superuser (root): sudo
 Tells 'sudo' to read password from input: -S
 
+Select "yes": -y <OR> --yes SAMPLE --> sudo apt upgrade -y (this will select in "y/n" question "y")
+
 Switch to the superuser (root) account and start a new shell session as the root user: sudo su
 Superuser (root): sudo
 This command stands for "switch user" and is used to change the current user to another user: su
 
 Give permissions to everyone for selected folder and its files: sudo chmod -R a+rwx . <OR> sudo chmod a+rwx /path/to/file
 
+View the manual page for a specific command: man <command_name> SAMPLE --> man createuser
+
+-------------------------------- USERS -----------------------------
+
+Switch over to the <username> account on your server by typing: sudo -i -u <username> SAMPLE --> sudo -i -u postgres
+Option or flag used with sudo to launch a shell with elevated privileges: -i
+Specifies the username of the user you want to run the command as: -u <username>
+
+Generate list of users: compgen -u
+
+Create a user interactively using the adduser command: --interactive SAMPLE --> sudo adduser --interactive
+
+Create a user interactively using the useradd command: -i SAMPLE --> sudo useradd -i
 
 --------------------------- RUNNING PROCESS -------------------------------
 
@@ -84,7 +97,7 @@ Save changes: sudo iptables-save | sudo tee /etc/iptables/rules.v4
 
 ------------------------------------ INSTALL -----------------------------------
 
-Select "yes": -y <OR> --yes SAMPLE --> sudo apt upgrade -y (this will select in "y/n" question "y")
+Install .deb package: sudo apt install ./<file>.deb
 
 ---------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
------------------------- (c) Vytautas Matukynas ------------------------
+Connect via SSH: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
 
 ------------------------ BASH commands ------------------------
 

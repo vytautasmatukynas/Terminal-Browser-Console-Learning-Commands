@@ -1,4 +1,4 @@
------------------------- (c) Vytautas Matukynas --------------------------
+Connect via SSH: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
 
 ----------------------------------- DEFAULT ---------------------------------------
 
@@ -7,54 +7,32 @@ host: -h
 user: -U
 database: -d
 
+Connect to PostgreSQL as the PostgreSQL Superuser (postgres): sudo -u postgres psql
+
+Connect to PostgreSQL as <username>: sudo -u <username> psql
+
+Connect to a specific user's default database: psql -U <username>
+
+Connect to a PostgreSQL Database with a Specific Username and Password: psql -d <db-name> -U <username> -W
+
+---------------------------------------------------------------------------
+
 The following command can be used to check if PostgreSQL service is running: sudo systemctl status postgresql
 
-Ensure that the server is running using the systemctl start command: sudo systemctl start postgresql.service
+Ensure that the server is running using the systemctl start command: sudo systemctl start postgresql
 
-We can also stop, start and restart the service:
+Can also stop, start and restart the service:
 sudo systemctl stop postgresql
 sudo systemctl start postgresql
 sudo systemctl restart postgresql
 sudo systemctl enable postgresql
+sudo systemctl status postgresql
 
-Define name of the new role and also ask whether it should have superuser permissions: --interactive
-
-Check for more options to createuser: man createuser
-
----------------------------------------------------------------------------
-
-# Create user/db and edit user/db by using sudo on current <username>
-Creating user: sudo -u postgres createuser --interactive
-Output Sample:
-Enter name of role to add: sample_user
-Shall the new role be a superuser? (y/n) y
-
-Creating Database: sudo -u postgres createdb <dbname>
-
-Change pasword of user: sudo -u postgres psql -c "ALTER USER <username> PASSWORD '<new-password>';"
-
-Select user: sudo -u postgres psql -c "SELECT <new-password>;"
-
-Pass a single SQL command: -c
-
-Specifies the target user "<username>": -u <username>
-
----------------------------------------------------------------------------
-
-# Create user/db and edit user/db by switching to postgres account
-Switch over to the postgres account on your server by typing: sudo -i -u postgres
-Using woth sudo this is LOGIN: -i
-Specifies the target user "postgres": -u postgres
-
-<<username> account> Set PostgreSQL command line interface in full admin mode: psql
-
-<<username> account> Create user: createuser --interactive
-
-<<username> account> Create db: createdb <dbname>
-
----------------------------------------------------------------------------
+---------------------- CREATE USER ----------------------------
 
 # Create user/db and edit user/db by using psql admin
+
+Switch over to the postgres account on your server by typing: sudo -i -u postgres
 
 Creating user: sudo -u postgres createuser <username>
 
@@ -66,19 +44,19 @@ Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
 
 <psql admin> Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
 
----------------------------------------------------------------------------
+------------------------- WORK IN PostgreSQL PANEL ---------------------------
 
-# Move around and edit PostgreSQL admin mode '<username>=#':
+# Move around and edit PostgreSQL admin mode '<db_name>=#' or '<username>@<db_name>=#':
 
-Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+Connect to PostgreSQL as the PostgreSQL Superuser (postgres): sudo -u postgres psql
 
-Connect to admin mode: psql -d <db-name> -U <username> -W
+Connect to a specific user's default database: psql -U <username>
 
-Show conn info: \conninfo
+Connect to a PostgreSQL Database with a Specific Username and Password: psql -d <db-name> -U <username> -W
 
-Switch to another user: \c - <username>
+Switch to another user: \c <username>
 
-Switch to another db: \c - <dbname>
+Switch to another db: \c <dbname>
 
 Switch to another user and db: \c <dbname> <username>
 

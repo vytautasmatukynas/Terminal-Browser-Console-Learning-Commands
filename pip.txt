@@ -1,8 +1,10 @@
------------------------- (c) Vytautas Matukynas ------------------------
-
 Install from requirements.txt:
 
 pip install -r requirements.txt
+
+Auto create requirements file with list of packages used in project: 
+
+pip freeze > requirements.txt
 
 ------------------------------------------
 

@@ -1,5 +1,3 @@
------------------------- (c) Vytautas Matukynas ------------------------
-
 To activate github.dev just go to repository you want and press "." key.
 
 ------------------------------------------
