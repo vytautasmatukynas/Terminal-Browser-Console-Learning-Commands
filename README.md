@@ -1,2 +1,2 @@
 # Terminal-Docs
-This is my doc files with terminal commands.
+This is my doc files with terminal commands used or use.
