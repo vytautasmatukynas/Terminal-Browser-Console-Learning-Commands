@@ -1,5 +1,6 @@
 Connect via SSH to diffrent machine: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
 
+
 ----------------------------------- DEFAULT ------------------------------
 
 Check for updates: sudo apt update && sudo apt upgrade
@@ -12,6 +13,25 @@ Remove the apt-cache: sudo apt-get clean
 
 Remove the unwanted software dependencies: sudo apt-get autoremove
 
+Select "yes": -y <OR> --yes SAMPLE --> sudo apt upgrade -y (this will select in "y/n" question "y")
+
+Switch to the superuser (root) account and start a new shell session as the root user: sudo su
+Superuser (root): sudo
+This command stands for "switch user" and is used to change the current user to another user: su
+
+Give permissions to everyone for selected folder and its files: sudo chmod -R a+rwx . <OR> sudo chmod a+rwx /path/to/file
+
+View the manual page for a specific command: man <command_name> SAMPLE --> man createuser
+
+---------------------------------------------------------------------------
+
+Run command with 'sudo' by using "|" (pipe) to define your password: echo {sudo_password}" | sudo -S {command} SAMPLE --> 
+--> echo pass123 | sudo -S systemctl restart postgresql
+Print password to standard  output: echo
+Pipe symbol redirects 'echo' standard output to the standard input of the subsequent command: |
+Run commands with the security privileges of another user, typically the superuser (root): sudo
+Tells 'sudo' to read password from input: -S
+
 ---------------------------------------------------------------------------
 
 Command-line utility in Linux operating systems that is used to control the system's init system and manage system services: systemctl SAMPLE --> sudo systemctl start postgresql
@@ -22,22 +42,6 @@ Show Trash on desktop: gsettings set org.gnome.shell.extensions.ding show-trash 
 
 Show START in right: gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 
-Run command with 'sudo' by using "|" (pipe) to define your password: echo {sudo_password}" | sudo -S {command} SAMPLE --> 
---> echo pass123 | sudo -S systemctl restart postgresql
-Print password to standard  output: echo
-Pipe symbol redirects 'echo' standard output to the standard input of the subsequent command: |
-Run commands with the security privileges of another user, typically the superuser (root): sudo
-Tells 'sudo' to read password from input: -S
-
-Select "yes": -y <OR> --yes SAMPLE --> sudo apt upgrade -y (this will select in "y/n" question "y")
-
-Switch to the superuser (root) account and start a new shell session as the root user: sudo su
-Superuser (root): sudo
-This command stands for "switch user" and is used to change the current user to another user: su
-
-Give permissions to everyone for selected folder and its files: sudo chmod -R a+rwx . <OR> sudo chmod a+rwx /path/to/file
-
-View the manual page for a specific command: man <command_name> SAMPLE --> man createuser
 
 -------------------------------- USERS -----------------------------
 
@@ -50,6 +54,9 @@ Generate list of users: compgen -u
 Create a user interactively using the adduser command: --interactive SAMPLE --> sudo adduser --interactive
 
 Create a user interactively using the useradd command: -i SAMPLE --> sudo useradd -i
+
+Change user password: passwd
+
 
 --------------------------- RUNNING PROCESS -------------------------------
 
@@ -64,7 +71,15 @@ PID (Ubuntu Linux process ID): 30992
 Process start time: 06:31
 Actual process or command with command line arguments:ps -U vivek -au
 
-Kill process using the above found process id: kill <process id>
+Kill process/job using the above found process id: kill <process id>
+
+To see a list of stopped jobs: jobs
+
+To terminate a stopped job (sample shows how to kill job - [1]): kill %1
+
+To resume a stopped job (sample shows how to resume job - [1]): fg %1
+
+Move a job to the background (sample shows how to resume job - [1]): bg #1
 
 
 --------------------------- IP / PING -----------------------------
@@ -72,6 +87,8 @@ Kill process using the above found process id: kill <process id>
 Display IP: ip addr show <OR> ip a
 
 Ping the server to check its reachability:: ping <ipadress>
+
+Show public IP: curl ifconfig.me
 
 
 ------------------------------------ FIREWALL -----------------------------------

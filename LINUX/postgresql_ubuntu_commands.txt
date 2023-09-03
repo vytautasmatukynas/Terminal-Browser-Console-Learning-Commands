@@ -1,6 +1,7 @@
 Connect via SSH: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
 
------------------------------------ DEFAULT ---------------------------------------
+
+-----------------------------------################ DEFAULT #####################---------------------------------------
 
 Connect to postgres <username>: psql -h <ipaddress> -U <username> -d <dbname>
 host: -h
@@ -10,10 +11,6 @@ database: -d
 Connect to PostgreSQL as the PostgreSQL Superuser (postgres): sudo -u postgres psql
 
 Connect to PostgreSQL as <username>: sudo -u <username> psql
-
-Connect to a specific user's default database: psql -U <username>
-
-Connect to a PostgreSQL Database with a Specific Username and Password: psql -d <db-name> -U <username> -W
 
 ---------------------------------------------------------------------------
 
@@ -28,23 +25,30 @@ sudo systemctl restart postgresql
 sudo systemctl enable postgresql
 sudo systemctl status postgresql
 
----------------------- CREATE USER ----------------------------
 
-# Create user/db and edit user/db by using psql admin
+----------------------################ CREATE USER and DATABASE #################----------------------------
 
 Switch over to the postgres account on your server by typing: sudo -i -u postgres
 
-Creating user: sudo -u postgres createuser <username>
+Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql <OR> psql
 
-Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
+# LOGIN/NOLOGIN priv determines whether or not a role can be used to connect from a client.
+# By default CREATE ROLE has NOLOGIN and CREATE USER has LOGIN.
 
-<psql admin> Create db: postgres=# create database <db_name>;
+Create user: CREATE USER youruser WITH ENCRYPTED PASSWORD 'yourpass';
 
-<psql admin> Giving the user a password: psql=# alter user <username> with encrypted password '<password>';
+Create user: CREATE ROLE youruser WITH LOGIN PASSWORD ‘yourpass’;
 
-<psql admin> Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
+Create user: CREATE ROLE youruser WITH PASSWORD ‘yourpass’;
 
-------------------------- WORK IN PostgreSQL PANEL ---------------------------
+Create db: CREATE DATABASE yourdbname;
+
+Create db with owner: CREATE DATABASE <databasename> OWNER <username>;
+
+Change db owner: ALTER DATABASE <databasename> OWNER TO <new_owner>;
+
+
+-------------------------################ WORK IN PostgreSQL PANEL ##############---------------------------
 
 # Move around and edit PostgreSQL admin mode '<db_name>=#' or '<username>@<db_name>=#':
 
@@ -52,7 +56,7 @@ Connect to PostgreSQL as the PostgreSQL Superuser (postgres): sudo -u postgres p
 
 Connect to a specific user's default database: psql -U <username>
 
-Connect to a PostgreSQL Database with a Specific Username and Password: psql -d <db-name> -U <username> -W
+Connect to a PostgreSQL specific Username with a specific Database: psql -U <username> -d <db_name> -W
 
 Switch to another user: \c <username>
 
@@ -80,114 +84,61 @@ Exit the interactive Postgres session: \q
 
 ---------------------------------------------------------------------------
 
-Delete(DROP) table/tables: DROP TABLE <tablename>; <OR> DROP USER <tablename_1>, <tablename_2>, ..., <tablename_10>;
+Delete(DROP) table/tables: DROP TABLE <tablename>; <OR> DROP TABLE <tablename_1>, <tablename_2>, ..., <tablename_10>;
 
 Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_2>, ..., <username_10>;
+
+---------------------------------------------------------------------------
 
 Change <username> to SUPERUSER: ALTER USER <username> WITH SUPERUSER;
 
 Remove SUPERUSER from <username>: ALTER USER <username> WITH NOSUPERUSER;
 
+---------------------------------------------------------------------------
+
 Channge username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
 
-
------------------------------- PostgreSQL INSTALL and SETUP --------------------------------------
-
-Install pgAdmin4:
-
-Install required packages: sudo apt-get install build-essential libssl-dev libffi-dev libgmp3-dev virtualenv python-pip libpq-dev python-dev
-
-Install public key for PgAdmin4 repository: curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
-
-Create the repository configuration file: sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
-
-Install pgAdmin4 on Ubuntu: sudo apt install pgadmin4
-
-Update Ubuntu: sudo apt update && sudo apt upgrade
-
 ---------------------------------------------------------------------------
 
-Install PostgreSQL:
-
-Download GPG key: sudo wget -qO /etc/apt/trusted.gpg.d/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
-
-Add repository: echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -sc)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-
-Update Ubuntu: sudo apt update && sudo apt upgrade
-
-Install PostgreSQL  on Ubuntu: sudo apt install -y postgresql postgresql-contrib
-
-Check version: psql --version
-
-The following command can be used to check if PostgreSQL service is running: sudo systemctl status postgresql
-
-Ensure that the server is running using the systemctl start command: sudo systemctl start postgresql.service
-
----------------------------------------------------------------------------
-
-Setup PostgreSQL user and server:
-
-Creating user: sudo -u postgres createuser <username>
-
-Creating Database: sudo -u postgres createdb <dbname>
-
-Set PostgreSQL command line interface in full admin mode: sudo -u postgres psql
-
-Giving the user a password: psql=# alter user <username> with encrypted password '<password>';
-
-Granting privileges on database: psql=# grant all privileges on database <dbname> to <username>;
+Check conn info: SELECT current_database(), current_user;
 
 
---------------------------------- ALLOW REMOTE CONNECTIONS -------------------------------------------
+---------------------- PRIVILEGES ON SCHEMA TO PostgreSQL USER ----------------------------
 
-Open postgresql.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/postgresql.conf 
+Grants the ability to access objects within a schema: GRANT USAGE ON SCHEMA schema_name TO username;
 
-Change line text: #listen_addresses = 'localhost' <TO> listen_addresses = '*'
+Allows the creation of new objects (tables, views, functions, etc.) within a schema: GRANT CREATE ON SCHEMA schema_name TO username;
 
-Open pg_hba.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/pg_hba.conf
- 
-Change lines:
-<FROM> # LOCALHOST #
-# TYPE  DATABASE        USER            ADDRESS                 METHOD
-local   <db_name>       <username>      <ipaddress>            md5
-# IPv4 local connections: 
-host    all             all             127.0.0.1/32            md5
-# IPv6 local connections:
-host    all             all             ::1/128                 md5
-<TO> # SAME NETWORK HOST #
-# IPv4 local connections: 
-host    all     	all     	0.0.0.0/0       	md5
-# IPv6 local connections:
-host    all             all     	:/0             	md5
+Grants the ability to alter existing objects within a schema (e.g., ALTER TABLE): GRANT ALTER ON SCHEMA schema_name TO username;
 
-Open the port “5432” in the firewal: sudo ufw allow 5432
+Allows the deletion of objects within a schema (e.g., DROP TABLE): GRANT DROP ON SCHEMA schema_name TO username;
 
-Confirm that the PostgreSQL server is running and listening on the specified IP address and port: netstat -tuln | grep 5432 
+Grants all the above privileges in one statement: GRANT USAGE, CREATE, ALTER, DROP ON SCHEMA schema_name TO username;
 
-Restart server: sudo systemctl restart postgresql
+To remove privileges just change GRANT to REVOKE and TO to FROM.
 
 
------------------------- CONFIGURE FIREWALL FOR PORT 5432 --------------------------------
+---------------------- PRIVILEGES ON TABLE TO PostgreSQL USER ----------------------------
 
-Open the port “5432” in the firewal: sudo ufw allow 5432
+The SELECT privilege allows the user to retrieve data from the table: GRANT INSERT ON table_name TO username;
 
-Used to List the rules of INPUT chain of the iptables firewall, each rule specifies criteria for packets and defines what action should be taken on them (e.g., accept, drop, reject): sudo iptables -L INPUT -n
-Option is used to list the rules in a specific firewall chain: -L
-Display numeric values: -n
+The INSERT privilege allows the user to add new rows (insert data) into the table: GRANT UPDATE ON table_name TO username;
 
-Add INPUT chain to allow incoming connections on port 5432: sudo iptables -A INPUT -p tcp --dport 5432 -j ACCEPT
-Add a new rule to the specified chain: -A
-Specify the protocol that the rule should match: -p
-Specify the target for the rule: -j
-Specify the destination port for incoming network packets: --dport
+The UPDATE privilege allows the user to modify existing rows in the table: GRANT UPDATE ON table_name TO username;
 
-Save changes: sudo iptables-save | sudo tee /etc/iptables/rules.v4
+The DELETE privilege allows the user to remove rows from the table: GRANT DELETE ON table_name TO username;
 
+The TRUNCATE privilege allows the user to truncate (remove all rows from) the table: GRANT TRUNCATE ON table_name TO username;
 
+The REFERENCES privilege allows the user to create foreign key constraints that reference this table: GRANT REFERENCES ON table_name TO username;
 
+The TRIGGER privilege allows the user to create triggers on this table: GRANT TRIGGER ON table_name TO username;
 
+The USAGE privilege allows the user to see and access the table's schema and metadata, even if they don't have other specific privileges on the table itself: GRANT USAGE ON table_name TO username;
 
+To remove privileges just change GRANT to REVOKE and TO to FROM.
 
-
-
-
+List table privileges for a specific user on a specific table (replace 'username' and 'table_name' with actual values):
+SELECT grantee, privilege_type
+FROM information_schema.table_privileges
+WHERE grantee = 'username' AND table_name = 'table_name';
