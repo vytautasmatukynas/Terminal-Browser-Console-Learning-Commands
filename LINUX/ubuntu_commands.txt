@@ -7,11 +7,11 @@ Check for updates: sudo apt update && sudo apt upgrade
 
 ---------------------------------------------------------------------------
 
-Remove the packages that failed to install completely: sudo apt-get autoclean
+Remove the packages that failed to install completely: sudo apt autoclean
 
-Remove the apt-cache: sudo apt-get clean
+Remove the apt-cache: sudo apt clean
 
-Remove the unwanted software dependencies: sudo apt-get autoremove
+Remove the unwanted software dependencies: sudo apt autoremove
 
 Select "yes": -y <OR> --yes SAMPLE --> sudo apt upgrade -y (this will select in "y/n" question "y")
 
@@ -182,9 +182,13 @@ This command saves the rules to the /etc/iptables/rules.v4 files: sudo iptables-
 To load these rules during system startup: iptables-restore < /etc/iptables/rules.v4
 
 
------------------------------------- INSTALL -----------------------------------
+------------------------------------ INSTALL / REMOVE -----------------------------------
 
 Install .deb package: sudo apt install ./<file>.deb
+
+Install software from Ubuntu default store: sudo apt install <name>
+
+Delete suoftware from Ubuntu: sudo apt remove <name>
 
 ---------------------------------------------------------------------------
 
@@ -213,6 +217,10 @@ Install Python: sudo apt install python3 python3-pip python3-venv virtualenv
 Check version: python3 --version
 
 Change Ubuntu Python version: sudo update-alternatives --config python3
+
+(DON'T DO THIS) Remove default python version: sudo apt remove python3 <-- this will remove default ubuntu python
+
+Remove python version you installed or any other version you want: sudo apt remove python3.12 <-- this will remove python 3.12, but first check what version is default
 
 ---------------------------------------------------------------------------
 
