@@ -24,4 +24,3 @@ add icon to .exe: --icon=andriod.ico
 
 add admin rights: --uac-admin
 
-------------------------------------------

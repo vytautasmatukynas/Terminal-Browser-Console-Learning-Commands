@@ -1,0 +1,70 @@
+Connect via SSH: ssh <username>@<ip addr> -> Sample: ssh user@127.0.0.1
+
+------------------------ BASH commands ------------------------
+
+Clear terminal: clear
+
+Clear command: Ctrl+U
+
+Exit command: Ctrl+C
+
+---------------------------------
+
+Show working dir: pwd
+
+Show list files/folders in working dir: ls <OR> ls -a (show hidden elements too)
+
+Change dir: cd -> Sample: cd PyCharm/pyqt/
+
+Move one dir back: cd ..
+
+Move to root dir:  cd / <OR> cd ~
+
+Move to desktop: cd ~/Desktop
+
+Root dir: ~ SAMPLE --> cd ~/Desktop (will open Desktop that is in /home/username/Desktop)
+
+Find item: find /path/to/search -name "item_name"
+
+Find item in home dir: find ~/ -name "example.txt"
+
+---------------------------------
+
+Open file in VS Code: code file.type --> code main.py
+
+Open project: code . <OR> code /project/dir
+
+Open current dir and any dir you type: start . <OR> start /project/dir
+
+
+--------------- FOLDERS -------------------
+
+Make dir (create folder): mkdir -> Sample: mkdir new_folder_name
+
+Remove dir (delete folder): rmdir -> Sample: rmdir folder_name
+
+Remove dir with all content including subfolders content: rm -r -> Sample: rm -r folder_name
+
+Force remove dir with all content including subfolders content: rm -rf -> Sample: rm -rf folder_name
+"recursive," which means that it will remove not only the specified directory but also all its contents, including subdirectories and files: -r or -R
+"force," which prevents the command from asking for confirmation before removing files and directories. It will remove items without any prompts -f
+
+
+---------------- FILES -----------------
+
+Create file: touch -> Sample: touch text.txt
+
+Remove file (delete file): rm / del -> Sample: rm text.txt / del text.txt
+
+Force remove file: rm -f -> Sample: rm -f myfile.txt
+"force," which prevents the command from asking for confirmation before removing files and directories. It will remove items without any prompts -f
+
+Open file: open / start -> Sample: start text.txt / open text.txt
+
+---------------------------------
+
+Write to file (overwrites all data to "your text"): echo "your text" > file.name -> Sample: echo "aaaaaa" > aa.txt
+
+Write to file (appends "your text" to end of file): echo "your text" >> file.name -> Sample: echo "aaaaaa" >> aa.txt
+
+
