@@ -5,6 +5,10 @@ Connect via SSH to diffrent machine: ssh <username>@<ip addr> SAMPLE --> ssh use
 
 Check for updates: sudo apt update && sudo apt upgrade
 
+Shutdown Ubuntu: sudo shutdown -h <OR> sudo shutdown -h now
+
+Restart Ubuntu: sudo reboot
+
 ---------------------------------------------------------------------------
 
 Remove the packages that failed to install completely: sudo apt autoclean
@@ -35,6 +39,15 @@ Tells 'sudo' to read password from input: -S
 ---------------------------------------------------------------------------
 
 Command-line utility in Linux operating systems that is used to control the system's init system and manage system services: systemctl SAMPLE --> sudo systemctl start postgresql
+
+
+------------------------------------ INSTALL / REMOVE -----------------------------------
+
+Install .deb package: sudo apt install ./<file>.deb
+
+Install software from Ubuntu default store: sudo apt install <name>
+
+Delete suoftware from Ubuntu: sudo apt remove <name>
 
 
 ---------------------------- Edit DESKTOP in UBUNTU DESKTOP vesion ---------------------------------
@@ -182,15 +195,7 @@ This command saves the rules to the /etc/iptables/rules.v4 files: sudo iptables-
 To load these rules during system startup: iptables-restore < /etc/iptables/rules.v4
 
 
------------------------------------- INSTALL / REMOVE -----------------------------------
-
-Install .deb package: sudo apt install ./<file>.deb
-
-Install software from Ubuntu default store: sudo apt install <name>
-
-Delete suoftware from Ubuntu: sudo apt remove <name>
-
----------------------------------------------------------------------------
+------------------------ Ubuntu SOFTWARE INSTALL --------------------------------
 
 Rrefresh/Update Snap-Store: sudo snap refresh snap-store
 
