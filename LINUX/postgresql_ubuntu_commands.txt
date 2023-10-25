@@ -1,6 +1,5 @@
 Connect via SSH: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
 
-
 -----------------------------------################ DEFAULT #####################---------------------------------------
 
 Connect to postgres <username>: psql -h <ipaddress> -U <username> -d <dbname>
@@ -26,7 +25,7 @@ sudo systemctl enable postgresql
 sudo systemctl status postgresql
 
 
-----------------------################ CREATE/DROP USER and DATABASE #################----------------------------
+----------------------################ CREATE/ALTER/DROP USER and DATABASE #################----------------------------
 
 Switch over to the postgres account on your server by typing: sudo -i -u postgres
 
@@ -41,17 +40,28 @@ Create user: CREATE ROLE youruser WITH LOGIN PASSWORD ‘yourpass’;
 
 Create user: CREATE ROLE youruser WITH PASSWORD ‘yourpass’;
 
+Change username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
+
+Change password of <username>: ALTER USER <username> WITH PASSWORD 'new_password';
+
+
 Create db: CREATE DATABASE yourdbname;
 
 Create db with owner: CREATE DATABASE <databasename> OWNER <username>;
 
 Change db owner: ALTER DATABASE <databasename> OWNER TO <new_owner>;
 
-Change username of <username>: ALTER ROLE <username> RENAME TO <new_username>;
+
+Create table with <tablename>: CREATE TABLE IF NOT EXISTS orders (ID INT GENERATED ALWAYS AS IDENTITY, name VARCHAR(100));
+
+Change table <tablename>: ALTER TABLE <tablename> RENAME TO <newtablename>;
+
 
 Delete(DROP) table/tables: DROP TABLE <tablename>; <OR> DROP TABLE <tablename_1>, <tablename_2>, ..., <tablename_10>;
 
 Delete(DROP) user/users: DROP USER <username>; <OR> DROP USER <username_1>, <username_2>, ..., <username_10>;
+
+Delete(DROP) database: DROP DATABASE IF EXISTS db_name;
 
 
 -------------------------################ WORK IN PostgreSQL PANEL ##############---------------------------
@@ -112,6 +122,8 @@ Allows the deletion of objects within a schema (e.g., DROP TABLE): GRANT DROP ON
 
 Grants all the above privileges in one statement: GRANT USAGE, CREATE, ALTER, DROP ON SCHEMA schema_name TO username;
 
+Grants all the privileges to all tables: GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO your_user;
+
 To remove privileges just change GRANT to REVOKE and TO to FROM.
 
 
@@ -139,3 +151,25 @@ List table privileges for a specific user on a specific table (replace 'username
 SELECT grantee, privilege_type
 FROM information_schema.table_privileges
 WHERE grantee = 'username' AND table_name = 'table_name';
+
+SELECT grantee, table_name, privilege_type
+FROM information_schema.table_privileges
+WHERE grantee = 'testuser' AND table_schema = 'public';
+
+SELECT grantee, table_name, privilege_type
+FROM information_schema.table_privileges
+WHERE grantee = 'testuser';
+
+
+---------------------- ALL PRIVILEGES ON DB TO PostgreSQL USER ----------------------------
+
+Grant all privileges on a database named "db_name" to a user named "username": GRANT ALL PRIVILEGES ON DATABASE db_name TO username;
+
+Revoke all privileges on a database named "db_name" to a user named "username":REVOKE ALL PRIVILEGES ON DATABASE db_name FROM username;
+
+Grant all privileges on schema: GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA schema_name TO username;
+
+Revoke all privileges on schema: REVOKE ALL ON SCHEMA public FROM public;
+
+
+

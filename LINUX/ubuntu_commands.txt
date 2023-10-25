@@ -129,7 +129,7 @@ Description: This defines an even larger network with 16,777,216 host addresses 
 
 Install FIREWALL: sudo apt install ufw
 
-Show FIREWALL status: sudo ufw status
+Show FIREWALL status: sudo ufw status <OR> sudo ufw status numbered
 
 When logging is enabled, FIREWALL will create log entries for each packet that matches a rule: sudo ufw logging on / sudo ufw logging off
 

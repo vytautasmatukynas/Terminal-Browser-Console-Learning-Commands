@@ -71,7 +71,7 @@ host    all     	all     	0.0.0.0/0       	trust
 # IPv6 local connections:
 host    all             all     	::/0             	trust
 
-Open the port “5432” in the firewal: sudo ufw allow 5432
+CONFIG FIREWALL <---
 
 Confirm that the PostgreSQL server is running and listening on the specified IP address and port: netstat -tuln | grep 5432 
 
@@ -80,9 +80,9 @@ Restart server: sudo systemctl restart postgresql
 
 ------------------------ CONFIGURE FIREWALL --------------------------------
 
-Open the port “5432” in the firewall for all IPs: sudo ufw allow 5432
+Open the port “5432” in the firewall for all IPs: sudo ufw allow 5432 <---- OR CHECK FIREWALL DOCUMENTATION
 
 <OR>
 
-Open ip address or network xxx.xxx.xxx.xxx/xx the port “5432” in the firewall: sudo ufw allow from xxx.xxx.xxx.xxx/xx to any port 5432
+Open ip address or network xxx.xxx.xxx.xxx/xx the port “5432” in the firewall: sudo ufw allow from xxx.xxx.xxx.xxx/xx to any port 5432 <---- OR CHECK FIREWALL DOCUMENTATION
 
