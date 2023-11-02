@@ -1,0 +1,12 @@
+Connect via SSH: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
+
+----------------------------------- DEFAULT ------------------------------
+
+Display IP: ifconfig
+
+Open config: sudo raspi-config
+
+Restart: sudo reboot
+
+---------------------------------------------------------------------------
+

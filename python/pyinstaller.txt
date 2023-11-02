@@ -1,0 +1,26 @@
+Sample:
+
+pyinstaller --noconfirm --onedir --windowed  "D:/Python/pyqt/bardakas-PyQT5/Bardakas.py" --icon=uzsakymai_icon.ico --uac-admin
+
+----------------------------------------
+
+hidden import: --hidden-import=MODULENAME --> Sample: --hidden-import=Pandas
+
+output folder: --distpath /opt/bk/dist 
+
+spec. file folder: --specpath /opt/bk/spec 
+
+work folder: --workpath /opt/bk/build
+
+cmd off: -w
+
+one file: --onefile
+
+one dir: --onedir
+
+version file: --version-file FILE
+
+add icon to .exe: --icon=andriod.ico
+
+add admin rights: --uac-admin
+

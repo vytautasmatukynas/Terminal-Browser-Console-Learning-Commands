@@ -1,0 +1,88 @@
+Connect via SSH to diffrent machine: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
+
+------------------------------ PostgreSQL INSTALL and SETUP --------------------------------------
+
+------------------------------- Install pgAdmin4 -----------------------------------------------
+
+Install public key for PgAdmin4 repository: curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+
+Create the repository configuration file: sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+Install pgAdmin4 on Ubuntu: sudo apt install pgadmin4 -y
+
+Update Ubuntu: sudo apt update -y && sudo apt upgrade -y
+
+
+---------------------------------- Install PostgreSQL ----------------------------------------
+
+Download GPG key: sudo wget -qO /etc/apt/trusted.gpg.d/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc (need psw)
+
+Add repository: echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -sc)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+
+Update Ubuntu: sudo apt update -y && sudo apt upgrade -y
+
+Install PostgreSQL  on Ubuntu: sudo apt install -y postgresql postgresql-contrib (need psw)
+
+Check version: psql --version
+
+The following command can be used to check if PostgreSQL service is running: sudo systemctl status postgresql
+
+Ensure that the server is running using the systemctl start command: sudo systemctl start postgresql
+
+
+--------------------------------- ALLOW REMOTE CONNECTIONS -------------------------------------------
+
+Open postgresql.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/postgresql.conf 
+
+Change line text: #listen_addresses = 'localhost' 
+<TO> 
+listen_addresses = '*' <-- this is for all connections, same as 0.0.0.0/0
+listen_addresses = 'xxx.xxx.xxx.0/24' <-- this is for newtwork
+listen_addresses = 'xxx.xxx.xxx.xxx' <-- this is for single ip
+
+Open pg_hba.conf file in command line-based text editor with "nano": sudo nano /etc/postgresql/<version>/main/pg_hba.conf
+ 
+Change lines:
+#####<FROM> # LOCALHOST ######### 
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   <db_name>       <username>      <ipaddress>            scram-sha-256
+# IPv4 local connections: 
+host    all             all             127.0.0.1/32            scram-sha-256
+# IPv6 local connections:
+host    all             all             ::1/128                 scram-sha-256
+
+###### <TO> # ALLOW CONNECTION TO SPECIFIC IPs # /32 is used to specify a single IP address #
+# IPv4 local connections: 
+host    all     	all     	xxx.xxx.xxx.xxx/32      	scram-sha-256
+host    all     	all     	xxx.xxx.xxx.xxx/32      	scram-sha-256
+host    all     	all     	xxx.xxx.xxx.xxx/32      	scram-sha-256
+# IPv6 local connections:
+host    all             all     	::1/128			md5
+
+###### <TO> # ALLOW CONNECTION TO ALL NETWORK # /24 represents a subnet mask that includes all IP addresses from xxx.xxx.xxx.1 to xxx.xxx.xxx.254 #
+# IPv4 local connections: 
+host    all     	all     	xxx.xxx.xxx.0/24       	scram-sha-256
+# IPv6 local connections:
+host    all             all     	::1/128            	scram-sha-256
+
+###### <TO> # SAME ALLOW CONNECTION TO EVERYONE # NEED HARDCORE SCURITY ######
+# IPv4 local connections: 
+host    all     	all     	0.0.0.0/0       	trust
+# IPv6 local connections:
+host    all             all     	::/0             	trust
+
+CONFIG FIREWALL <---
+
+Confirm that the PostgreSQL server is running and listening on the specified IP address and port: netstat -tuln | grep 5432 
+
+Restart server: sudo systemctl restart postgresql
+
+
+------------------------ CONFIGURE FIREWALL --------------------------------
+
+Open the port “5432” in the firewall for all IPs: sudo ufw allow 5432 <---- OR CHECK FIREWALL DOCUMENTATION
+
+<OR>
+
+Open ip address or network xxx.xxx.xxx.xxx/xx the port “5432” in the firewall: sudo ufw allow from xxx.xxx.xxx.xxx/xx to any port 5432 <---- OR CHECK FIREWALL DOCUMENTATION
+

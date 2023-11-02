@@ -1,0 +1,100 @@
+Install from requirements.txt:
+
+pip install -r requirements.txt
+
+Auto create requirements file with list of packages used in project: 
+
+pip freeze > requirements.txt
+
+------------------------------------------
+
+List all installed frameworks in env:
+
+pip list
+
+------------------------------------------
+
+requirements.txt inside sample:
+
+Flask==1.0.2
+Jinja2==2.10
+...
+
+<OR>
+
+flask
+jinja2
+...
+
+<AND> 
+
+etc. all libs/frames you need.
+
+------------------------------------------
+
+Install venv:
+
+python -m venv /path/to/directory
+
+------------------------------------------
+
+Active venv:
+
+On Unix or MacOS, using the bash shell: source /path/to/venv/bin/activate <OR> source activate "venv name"
+
+On Unix or MacOS, using the csh shell: source /path/to/venv/bin/activate.csh  <OR> source activate "venv name"
+
+On Unix or MacOS, using the fish shell: source /path/to/venv/bin/activate.fish  <OR> source activate "venv name"
+
+On Windows using the Command Prompt: path\to\venv\Scripts\activate.bat <OR> activate "venv name"
+
+On Windows using PowerShell: path\to\venv\Scripts\Activate.ps1
+
+------------------------------------------
+
+Install frameworks and etc:
+
+Sample -->> pip install Flask
+
+Sample -->> pip install Flask
+
+<OR>
+
+Sample -->> /venv/Script/python.exe -m pip install Flask
+
+Sample -->> /venv/Script/python.exe -m pip uninstall Flask
+
+pip install Flask
+pip install Flask-Migrate
+pip install Flask-Sqlalchemy
+pip install Flask-WTF
+pip install Flask-JWT
+pip install Flask-Login
+pip install WTForms
+pip install Jinja2
+pip install Django
+pip install html
+
+
+pip install Pandas
+pip install numpy
+pip install matplotlib
+pip install XlsxWriter
+pip install xlwt
+pip install UliPlot
+pip install jupyterlab
+pip install notebook
+pip install voila
+
+pip install PyQt5
+pip install configparser
+
+pip install psycopg2
+pip install SQLAlchemy
+
+Ubuntu psycopg2:
+sudo apt update
+sudo apt install libpq-dev python-dev
+sudo pip install psycopg2
+
+

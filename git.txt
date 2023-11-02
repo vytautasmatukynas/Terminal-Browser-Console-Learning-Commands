@@ -2,18 +2,32 @@ To activate github.dev just go to repository you want and press "." key.
 
 ------------------------------------------
 
-To ignore files/folders in git like your conn .env files and all that sensitive data, use -> .gitignore file. Type all folders/files that you dont want to use in git.
+To ignore files/folders in git like your conn .env files and all that sensitive data, use .gitignore file. Type all folders/files that you dont want to use in git.
 
 ------------------------------------------
 
 Error --> "Another Git process seems to be running in this repository": rm -f .git/index.lock
 
-------------------------------------------
 
-Create git: git init
+-------------------- USERNAME / EMAIL ----------------------
+
+Add username: git config –global user.name “[name]” --> Sample: git config –global user.name “New Name”
+
+Check username: it config user.name
+
+Add email: git config –global user.email “[email address]” --> Sample: git config –global user.name “New@Name.com”
+
+Check email: git config user.email
 
 
-Add file to git: git add file_name --> Sample: git add documentation\sample.txt <OR> git add . / git add --all (adds all files in current dir to git)
+-------------------- CREATE REPOSITORY ----------------------
+
+Create git repositorie: git init
+
+
+-------------------- ADD / REMOVE FILE or FOLDER ----------------------
+
+Add file/all to git: git add file_name --> Sample: git add documentation\sample.txt <OR> git add . / git add --all (adds all files in current dir to git)
 
 Add folder to git: git add folder_dir --> Sample: git add documentation\
 
@@ -24,27 +38,55 @@ Remove folder from git: git rm -r <test_dir> --> Sample: git rm -r main_project/
 
 Remove folder from git: git rm <file_name> --> Sample: git rm file1.txt
 
-------------------------------------------
+
+---------------------- CHECK STATUS / COMMIT --------------------
 
 Check changes that will be commited: git status
 
+List the version history for the current branch: git log
+
 Commit changes: git commit -m '<commit_message>' --> Sample: git commit -m 'my first commit'
 
-------------------------------------------
+
+------------------- LIST BRANCHES -----------------------
+
+Lists all the local branches in the current repository: git branch
+
+
+------------------- ADD / REMOVE BRANCHE -----------------------
 
 Create branch from current git repository: git branch <branch_name> --> Sample: git branch sample_branch_name
+
+Delete git branch: git branch --delete <branchname> --> Sample: git branch --delete sample_branch_name
+
+
+------------------- CHECKOUT / MERGE BRANCHES -----------------------
 
 Checkout to git branch: git checkout <branch_name> --> Sample: git checkout sample_branch_name
 
 Merge git branch to current git repository: git merge <branch_name> --> Sample: git merge sample_branch_name
 
-Delete git branch: git branch --delete <branchname> --> Sample: git branch --delete sample_branch_name
+
+------------------- CHECK DIFFRENCES BETWEEN BRANCHES -----------------------
 
 This command shows the file differences which are not yet staged: git diff
 
 This command shows the differences between the files in the staging area and the latest version present: git diff –staged
 
 This command shows the file differences between first and child second: git diff <first branch> <second branch> --> Sample: git diff main child
+
+
+------------------- CLONE REPOSIROTY -----------------------
+
+Obtain a repository from an existing URL: git clone [URL] --> Sample: git clone https://github.com/xxxxx/xxxxxx.git
+
+
+
+
+
+
+
+
 
 --------------------------------- .gitignore --------------------------------
 
