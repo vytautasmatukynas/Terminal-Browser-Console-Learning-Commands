@@ -1,0 +1,70 @@
+Connect via SSH: ssh <username>@<ip addr> -> Sample: ssh user@127.0.0.1
+
+Changing Directories:
+
+    Change to a directory: cd or Set-Location
+        Example: cd C:\Path\To\Directory or Set-Location C:\Path\To\Directory
+
+    Change to the root directory: cd\
+
+Listing Files and Directories:
+
+    Display files and folders in the current directory: dir or Get-ChildItem
+        Example: dir or Get-ChildItem
+
+    Show directory structure of a disk or folder: tree
+
+    Clear the terminal: cls
+
+File and Directory Management:
+
+    Create a file or folder: md or New-Item (with -ItemType Directory)
+        Example: md C:\NewDirectory or New-Item -Path "C:\NewDirectory" -ItemType Directory
+
+    Rename a file or folder: ren or Move-Item
+        Example: ren myfile.txt newfile.txt or Move-Item -Path "myfile.txt" -Destination "newfile.txt"
+
+    Delete a file or folder: rm or Remove-Item
+        Example: rm myfile.txt or Remove-Item -Path "myfile.txt"
+
+    Delete a directory and all its contents: rm -r or Remove-Item with the -Recurse parameter
+        Example: rm -r mydir or Remove-Item -Path "mydir" -Recurse
+
+    Forcibly delete files without asking: rm -f
+
+    Delete files with a confirmation prompt: rm -i (Note: PowerShell usually asks for confirmation)
+
+File Copy and Move:
+
+    Copy files to another location: copy or Copy-Item
+        Example: copy sourceFile.txt destinationPath or Copy-Item -Path "sourceFile.txt" -Destination "destinationPath"
+
+    Advanced file and directory copy: robocopy (Robocopy is a separate tool, not native to PowerShell)
+
+    Copies files and directory trees: xcopy (Xcopy is an external command, not native to PowerShell)
+
+    Replace files in one directory with files of the same name in another directory: replace
+
+    Move files from one folder to another: move or Move-Item
+
+File Editing and Compression:
+
+    Start a file editor: edit (Use a text editor like Notepad or another application)
+
+    Decompress compressed files: expand
+
+File Comparison and Text Manipulation:
+
+    Compare files and show differences: fc (Note: FC is not commonly used in PowerShell)
+
+    Find a text string in a file: find or Select-String
+        Example: find "searchText" file.txt or Select-String -Path "file.txt" -Pattern "searchText"
+
+    Print out the text file contents: print
+
+    Display the contents of text files: type
+
+Managing Open Files:
+
+    Manage opened local or network files: openfiles
+
