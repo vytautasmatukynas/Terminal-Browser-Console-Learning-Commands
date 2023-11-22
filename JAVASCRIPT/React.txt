@@ -1,0 +1,34 @@
+####################### Setup React.js project  #################################
+
+# Quickly set up a new React project with sample React WEB:
+1. npx create-react-app <app-name> -> npx create-react-app my-app
+
+# Quickly set up a new clean React app:
+1. npx create-vite <app-name> --template react -> npx create-vite my-react-app --template react
+
+# Navigate to the directory where you created your React app.
+2. cd <app-name> -> cd my-app
+
+# This command will launch your React app, and you can view it in your web browser at http://localhost:3000.
+3. npm start
+
+Command is used to install dependencies (external libraries or modules) for a Node.js project: 
+npm install 
+
+<OR> 
+
+npm install <package-name> SAMPLE -> npm install react-router-dom
+
+Install Axios to make HTTP requests from your React application: npm install axios
+
+##################################################################################
+
+####################### Check version if npm and Node.js #################################
+
+Check Node.js version: node -v
+
+Check npm version: npm -v
+
+Check npx version: npx -v
+
+##################################################################################
