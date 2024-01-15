@@ -1,0 +1,41 @@
+Connect via SSH to diffrent machine: ssh <username>@<ip addr> SAMPLE --> ssh user@127.0.0.1
+
+--------------------------- CREATE and START ---------------------------
+
+# This command should attempt to create the database "my_database" and, if it already exists, connect to it using the specified user and password. 
+# If the database does not exist, it will be created with the specified user and password.
+
+Create Odoo database named "my_database" with the user "my_user" and password "my_password": python odoo-bin -d my_database -r my_user -w my_password
+SAMPLE: python odoo-bin -d odoo17 -r odoo -w odoo
+
+python: Calls the Python interpreter to execute the script that follows.
+odoo-bin: The script that is executed. It's the main entry point for running the Odoo server.
+-d odoo17: Specifies the name of the Odoo database you want to create or connect to. In this case, it's "odoo17."
+-r odoo: Specifies the user for the Odoo database. The user is set to "odoo" in this command.
+-w odoo: Specifies the password for the Odoo user. The password is set to "odoo" in this command.
+
+--------------------------- CONFIG PyCharm for Odoo ---------------------------
+
+1. Select "Run/Debbug Configuration" in top middle.
+2. Select "Edit Configuration".
+3. Select "Add New Configuration" and "Python".
+4. Enter name for configuration.
+5. In "Script" section enter location to your "odoo-bin" file.
+6. In "Scprit Parameters" add command "--addons-path addons -r <PSQL username> -w <PSQL password>"
+7. Now you can run your Odoo server by clicking "Play" button.
+
+--------------------------- CONFIG Odoo to CONN to a specific PostgreSQL ---------------------------
+
+1. Use a text editor like Notepad or any code editor of your choice to open the "odoo/debian/odoo.conf" or "odoo/debian/odoo-server.conf" file.
+2. Edit file:
+	[options]
+	; This is the password that allows database operations:
+	admin_passwd = admin
+	db_host = your_postgres_host  ; Replace with your PostgreSQL server's host
+	db_port = your_postgres_port  ; Replace with your PostgreSQL server's port
+	db_user = your_postgres_user  ; Replace with your PostgreSQL server's user
+	db_password = your_postgres_password  ; Replace with your PostgreSQL server's password
+
+
+
+
