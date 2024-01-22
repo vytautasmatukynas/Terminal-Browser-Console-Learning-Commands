@@ -1,4 +1,4 @@
----------------------------- DOCKER FILE SAMPLE ---------------------------
+---------------------------- DOCKER FILE FLASK SAMPLE ---------------------------
 
 # Use the official Python 3.11 image as the base image
 FROM python:3.11
@@ -25,16 +25,40 @@ COPY . . <OR> COPY ./mycodelocal/ ./mycodedocker/
 # Define the command to run when the container starts
 CMD ["flask", "run", "--host", "0.0.0.0"]
 
+---------------------------- DOCKER FILE SPING BOOT SAMPLE ---------------------------
+
+# Use a base image with the desired JDK version
+FROM amazoncorretto:17-alpine
+
+# Set the working directory inside the container
+WORKDIR /api
+
+# This line defines an argument named JAR_FILE with the default value of target/*.jar
+# This allows you to pass the JAR file as a build argument when building the Docker image.
+ARG JAR_FILE=target/*.jar
+
+# Copy the JAR file into the container at /app
+COPY ./target/oder-management-api-spring-1.0.jar /api/order-management-api-spring-1.0.jar
+
+# Expose the port that your Spring Boot app is running on
+EXPOSE 8080
+
+# Specify the command to run your application
+CMD ["java", "-jar", "order-management-api-spring-1.0.jar"]
 
 ------------------------------ DOCKER COMMANDS ---------------------------------
 
-Create docker image: docker build -t <image_name> <files_dir> -> Sample:  docker build -t rest-api-test /d/Python/basic_API
+Create/Update docker image: docker build -t <repository>:<tag> <path_to_Dockerfile> -> Sample: docker build -t myusername/myapp:latest .
 
-Start docker image: docker run -p <port:port> <docker_port> -> Sample: docker run -p 5005:5000 rest-api-test
+Start docker image: docker run -p <docker_port:port> --name <your-container-name> <your-image-name> -> SAMPLE: docker run -p 8080:8080 --name test_app sha256:49f95757c2ec
 
-Start docker image in background: docker run -dp <docker_port:port> <image_name> -> Sample: docker run -d -p 5005:5000 rest-api-test
+Start docker image in background: docker run -dp <docker_port:port> --name <your-container-name> <your-image-name> -> SAMPLE: docker run -dp 8080:8080 --name test_app sha256:49f95757c2ec
 
-Start docker image and link with you current work folder, so when you change something it will change auto in docker image (use "volume" only for local development, don'y use for deployment): docker run -p <docker_port:port> -w /<WORKDIR> -v "<project_dir>:/<WORKDIR>" <image_name> -> Sample: docker run -dp 5005:5000 -w /app -v "/project/dir/app:/app" rest-api-test
+Start docker container: docker start -d <container-name> -> SAMPLE: docker start -d order-api
+
+Check container status: docker ps
+
+Registry URL: docker.io/<dockerimagename>:version -> SAMPLE docker.io/sha256:vcdfgaewfsad564awert5werw 
 
 -------------------------------------------
 
