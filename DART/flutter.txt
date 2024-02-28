@@ -1,0 +1,5 @@
+Install dependencies and etc:
+
+Add new dependency: flutter pub add <packagae_name> -> SAMPLE: flutter pub add http
+
+Install dependency: flutter pub get
