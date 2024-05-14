@@ -1,0 +1,21 @@
+---------------------------- JENKINS DEFAULT COMMANDS ---------------------------
+
+Start Jenkins service on port 8080 on any platform: java -jar jenkins.war --httpPort=8080
+
+
+---------------------------- JENKINS BASH COMMANDS ---------------------------
+
+Start Jenkins service on port 8080: java -jar jenkins.war --httpPort=8080 <OR> sudo systemctl start jenkins
+
+Restart Jenkins service on port 8080: pkill -f jenkins.war && java -jar jenkins.war --httpPort=8080 <OR> sudo systemctl restart jenkins
+
+Stop Jenkins service on port 8080: pkill -f jenkins.war <OR> Ctrl+C <OR> sudo systemctl stop jenkins <OR> Ctrl+C
+
+
+---------------------------- JENKINS CMD COMMANDS ---------------------------
+
+Start Jenkins service: java -jar jenkins.war --httpPort=8080 <OR> jenkins.exe start
+
+Restart Jenkins service: jenkins.exe restart
+
+Stop Jenkins service: jenkins.exe stop <OR> Ctrl+C
